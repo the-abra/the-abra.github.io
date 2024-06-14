@@ -877,7 +877,7 @@ main {
 
 
 /*-----------------------------------*\
-  #Projects
+  #PORTFOLIO
 \*-----------------------------------*/
 
 .filter-list { display: none; }
@@ -1249,7 +1249,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #Projects, BLOG 
+   * #PORTFOLIO, BLOG 
    */
 
   .project-img,
@@ -1508,7 +1508,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #Projects, BLOG
+   * #PORTFOLIO, BLOG
    */
 
   .project-img, .blog-banner-box { border-radius: 16px; }
@@ -1601,7 +1601,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * Projects
+   * PORTFOLIO
    */
 
   .article-title { padding-bottom: 20px; }
@@ -1627,7 +1627,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .filter-item button.active { color: var(--cyan-crayola); }
 
-  /* Projects and blog grid */
+  /* portfolio and blog grid */
 
   .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
 
@@ -1746,7 +1746,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * Projects
+   * PORTFOLIO
    */
 
   .project-list { grid-template-columns: repeat(3, 1fr); }
