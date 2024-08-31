@@ -160,7 +160,12 @@ input, textarea {
 
 html { font-family: var(--ff-main); }
 
-body { background: var(--smoky-black); }
+body {
+  background-image: url("../images/wp1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; /* Optional: To ensure the image covers the entire background */
+}
+
 
 
 
