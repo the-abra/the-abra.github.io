@@ -1,841 +1,1356 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr" class="dark">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome Buddy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Ege KILIÇ - DevOps & Mekatronik</title>
+    <meta name="description"
+        content="Professional portfolio showcasing expertise in DevOps, cloud infrastructure, CI/CD pipelines, and software architecture. Bridging software automation and scalable systems.">
+    <meta name="keywords"
+        content="DevOps, Software Architect, Cloud Infrastructure, CI/CD, Kubernetes, Docker, AWS, Azure, System Design, Microservices">
+    <meta name="author" content="M. Ege KILIÇ">
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon">
+    <!-- Open Graph -->
+    <meta property="og:title" content="M. Ege KILIÇ - DevOps & Software Architect">
+    <meta property="og:description"
+        content="Professional portfolio showcasing expertise in DevOps, cloud infrastructure, and software architecture.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./css/style.css">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="M. Ege KILIÇ - DevOps & Software Architect">
+    <meta name="twitter:description"
+        content="Professional portfolio showcasing expertise in DevOps, cloud infrastructure, and software architecture.">
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9520713209178280"
-     crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
-  <canvas class="snowverlay"></canvas>
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./images/my-avatar.png" alt="Ege KILIÇ" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="M. Ege KILIÇ">M. Ege KILIÇ</h1>
-
-          <p class="title">DevOps Specialist</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <div class="nav-logo">
+                        ⚡
+                    </div>
+                    <span>M. Ege KILIÇ</span>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-menu">
+                        <a href="#about" data-translate="about">Hakkımda</a>
+                        <a href="#skills" data-translate="skills">Yetenekler</a>
+                        <a href="#contact" data-translate="contact">İletişim</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </nav>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-avatar">
+                    <div class="avatar">
+                        <img src="./static/my-avatar.png" alt="M. Ege KILIÇ">
+                    </div>
+                    <div class="avatar-glow"></div>
+                </div>
 
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title anurati-font">Email</p>
-
-              <a href="mailto:egekilic@proton.me" class="contact-link">egekilic@proton.me</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title anurati-font">Phone</p>
-
-              <a href="tel:+905524620213" class="contact-link">+90 (552) 462 0213</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title anurati-font">Birthday</p>
-
-              <time datetime="1982-06-23">September 23, 2005</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title anurati-font">Location</p>
-
-              <address>Izmır, Türkiye</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          
-          <li class="social-item">
-            <a href="https://www.github.com/the-abra/" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-          
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/ege-kılıç/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/abra_aurora/" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://gist.github.com/the-abra" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link anurati-font active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link anurati-font" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link anurati-font" data-nav-link>Projects</button>
-          </li>
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title anurati-font">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            I am a DevOps Specialist based in İzmir, Türkiye. I have deep expertise in automation, cloud infrastructure and continuous integration/deployment (CI/CD). I focus on streamlining workflows, automating repetitive tasks, and improving the reliability of deployments to ensure complex systems are efficient and scalable. My goal is to ensure systems are robust, reliable, and resilient while optimizing performance and cost efficiency. I also design solutions to seamlessly integrate development and operations, fostering a culture of collaboration and continuous improvement across teams.
-          </p>
-        </section>
-        
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/computer.png
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Code Review and Improvement</h4>
-
-                <p class="service-item-text">
-                  Conduct code reviews within the team and provide feedback to improve software quality and performance. Make continuous improvements to improve the security and maintainability of the code.
+                <h1 class="hero-title">M. Ege KILIÇ</h1>
+                <p class="hero-subtitle" data-translate="heroTitle">DevOps & Mekatronik</p>
+                <p class="hero-description" data-translate="heroDescription">
+                    DevOps uygulamaları, bulut mimarisi ve mekatronik sistem entegrasyonu konularında uzmanlığımla
+                    fikirleri ölçeklenebilir çözümlere dönüştürüyorum. Yenilikçi otomasyon ve akıllı sistem tasarımı ile
+                    teknolojinin geleceğini inşa ediyorum.
                 </p>
-              </div>
+                <!--
+                <div class="hero-buttons">
+                    <button class="btn-primary">
+                        <i data-lucide="download"></i>
+                        <span data-translate="downloadResume">Özgeçmiş İndir</span>
+                    </button>
+                    <button class="btn-outline">
+                        <i data-lucide="mail"></i>
+                        <span data-translate="getInTouch">İletişime Geç</span>
+                    </button>
+                </div>
+                -->
 
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/integration.png" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Integration of New Technologies</h4>
-
-                <p class="service-item-text">
-                  To produce more efficient and modern solutions by integrating current technologies into projects.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/mentoring.png" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mentoring</h4>
-
-                <p class="service-item-text">
-                  Supporting start-ups and young professionals to advance in their careers by guiding them.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/training-program.png" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Developing Training Programs</h4>
-
-                <p class="service-item-text">
-                  Developing technical knowledge and skills by preparing special training programs for teams.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/agile.png" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">CI/CD Processes</h4>
-
-                <p class="service-item-text">
-                  Accelerate software development cycles and ensure seamless deployment by optimizing continuous integration and deployment processes.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/automation.png" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Automation</h4>
-
-                <p class="service-item-text">
-                  Increasing efficiency and minimizing human error by automating repetitive tasks and processes.
-                </p>
-              </div>
-
-            </li>
-            
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/microservice.png" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">API and Microservice</h4>
-
-                <p class="service-item-text">
-                  Ensure scalability and security of systems by designing and developing RESTful APIs and microservice architectures.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./images/database-design.png" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Database Design and Management</h4>
-
-                <p class="service-item-text">
-                  Ensure data integrity and optimize performance by designing and managing database structures.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-        <!-- testimonials modal -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-          </section>
-
+                <div class="hero-social">
+                    <a href="https://github.com/the-abra" target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ege-kılıç" target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="mailto:egekilic@proton.me">
+                        <i data-lucide="mail"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        
+    </section>
 
-
-        <!--
-          - clients
-        -->
-
-
-
-      </article>
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title anurati-font">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="aboutTitle">Hakkımda</h2>
+                <div class="section-divider"></div>
+                <p data-translate="aboutSubtitle">Yenilikçi yazılım çözümleri ve sağlam sistem mimarisi arasında köprü
+                    kuruyorum</p>
             </div>
 
-            <h3 class="h3">Education</h3>
-          </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-translate="aboutDescription1">
+                        Mekatronik geçmişine sahip tutkulu bir DevOps ve Yazılım Mimarıyım. Bu kombinasyon, modern
+                        sistemlerin hem yazılım hem de donanım yönlerini anlamamı sağlayarak, karmaşık ortamlarda
+                        ölçeklenebilir çözümler uygulamada özellikle etkili olmamı mümkün kılıyor.
+                    </p>
+                    <p data-translate="aboutDescription2">
+                        Mekatronik alanındaki ön lisans derecem ve bulut teknolojilerindeki kapsamlı deneyimimle,
+                        destekledikleri sistemleri derinlemesine anlayarak sağlam, ölçeklenebilir altyapı çözümleri
+                        yaratma konusunda uzmanlaştım. Yaklaşımım, son teknoloji DevOps uygulamalarını sağlam
+                        mühendislik prensipleriyle birleştiriyor.
+                    </p>
+                    <div class="about-badges">
+                        <div class="badge-item">
+                            <i data-lucide="graduation-cap"></i>
+                            <span data-translate="associatesDegree">Mekatronik Ön Lisans</span>
+                        </div>
+                        <div class="badge-item">
+                            <i data-lucide="award"></i>
+                            <span data-translate="awsCertified">BTK Sertifikalı</span>
+                        </div>
+                        <div class="badge-item">
+                            <i data-lucide="briefcase"></i>
+                            <span data-translate="yearsExperience">3+ Yıl Deneyim</span>
+                        </div>
+                    </div>
+                </div>
 
-          <ol class="timeline-list">
+                <div class="about-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <img src="./static/altyapı.png" width="56">
+                        </div>
+                        <h3 data-translate="infrastructure">Altyapı</h3>
+                        <p data-translate="cloudOnPremise">Cloud & On-Site</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <img src="./static/otomasyon.png" width="56">
+                        </div>
+                        <h3 data-translate="automation">Otomasyon</h3>
+                        <p data-translate="cicdIndustrial">CI/CD & Industrial</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <img src="./static/cloud.png" width="56">
+                        </div>
+                        <h3 data-translate="cloudNative">Bulut Bilişim</h3>
+                        <p data-translate="kubernetesDocker">Kubernetes & Docker</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <img src="./static/wrench.png" width="56">
+                        </div>
+                        <h3 data-translate="integration">Entegrasyon</h3>
+                        <p data-translate="systemsTools">Systems & Tools</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Vocational high school</h4>
-
-              <span>2019 — 2023</span>
-
-              <p class="timeline-text">
-                I completed a focused program in Database Programming at Vaction High School. I gained expertise in designing databases, using SQL for queries, and ensuring data security and integrity. This education equipped me with practical skills for database management and optimization.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="skillsTitle">Yetenekler & Uzmanlık</h2>
+                <div class="section-divider"></div>
+                <p data-translate="skillsSubtitle">Modern DevOps uygulamaları, bulut teknolojileri ve sistem
+                    entegrasyonunu kapsayan kapsamlı bir araç seti</p>
             </div>
 
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">DevOps Specialist</h4>
-
-              <span>2023 — Present</span>
-
-              <p class="timeline-text">
-                As a DevOps Specialist at PNA, my responsibilities include managing CI/CD pipelines, automating infrastructure deployment using tools like Kubernetes and Terraform, ensuring high availability and scalability of applications, and collaborating with development teams to streamline the release process.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Backend Developer</h4>
-
-              <span>2020 — 2023</span>
-
-              <p class="timeline-text">
-                As a Backend Developer at PNA, I was responsible for designing and implementing RESTful APIs, optimizing database queries for performance, and collaborating with front-end developers to integrate server-side logic with user-facing elements. Additionally, I played a key role in developing scalable solutions for E-Campus project. This role provided me with valuable experience in .NET Core on Linux based systems, enabling me to develop robust and scalable backend solutions.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Effective Communication</h5>
-                <data value="90">90%</data>
-              </div>
-        
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-        
-            </li>
-        
-            <li class="skills-item">
-        
-              <div class="title-wrapper">
-                <h5 class="h5">Team Collaboration</h5>
-                <data value="85">85%</data>
-              </div>
-        
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-        
-            </li>
-        
-            <li class="skills-item">
-        
-              <div class="title-wrapper">
-                <h5 class="h5">Problem-Solving</h5>
-                <data value="90">90%</data>
-              </div>
-        
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-        
-            </li>
-        
-            <li class="skills-item">
-        
-              <div class="title-wrapper">
-                <h5 class="h5">Mentorship</h5>
-                <data value="95">95%</data>
-              </div>
-        
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 95%;"></div>
-              </div>
-        
-            </li>
-        
-            <li class="skills-item">
-        
-              <div class="title-wrapper">
-                <h5 class="h5">Adaptability</h5>
-                <data value="85">85%</data>
-              </div>
-        
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-        
-            </li>
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Time Management</h5>
-                <data value="80">80%</data>
-              </div>
-        
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-        
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #Projects
-      -->
-
-      <article class="projects" data-page="projects">
-
-        <header>
-          <h2 class="h2 article-title anurati-font">Projects</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Sources</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-            
-              <li class="select-item">
-                <button data-select-item>Sources</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/the-abra/dockero">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/dockero.png" alt="dockero" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Dockero CLI</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/the-abra/clicksound">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/clicksound.png" alt="clicksound" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Clicksound</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://the-abra.github.io/CameraInterface">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="https://github.com/user-attachments/assets/a2bee92b-16d0-43fa-ba01-30ee9cfa315a" alt="CamControl" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Camera Interface</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/the-abra/FacialRecognition">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/FacialRecognition.png" alt="face recognition system" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Facial Recognition</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-            
-            <li class="project-item  active" data-filter-item data-category="sources">
-              <a href="https://github.com/the-abra/func4bash">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/func4bash.png" alt="Functions for BASH" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Func 4 Bash</h3>
-
-                <p class="project-category">Sources</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="sources">
-              <a href="https://gist.github.com/the-abra/28ca55efc3742cc1fe07949dea084133">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/spdd.png" alt="Software Project Development Document" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">SPDD</h3>
-
-                <p class="project-category">Sources</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="sources">
-              <a href="https://gist.github.com/the-abra/105458d2c2dac22622e1916856cf8571">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/spdd.png" alt="Software Project Technical Document" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">SPTD</h3>
-
-                <p class="project-category">Sources</p>
-
-              </a>
-            </li>
-            
-            <li class="project-item  active" data-filter-item data-category="sources">
-              <a href="https://gist.github.com/the-abra/e7661b916e05797106a24f4f102f59cf">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/spdd.png" alt="Microservice Architecture Document" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MAD</h3>
-
-                <p class="project-category">Sources</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="sources">
-              <a href="https://gist.github.com/the-abra/38105f1e4cc1e969172ab933c799681d">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/spdd.png" alt="Software Project Readme" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">README</h3>
-
-                <p class="project-category">Sources</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="sources">
-              <a href="https://gist.github.com/the-abra/04525ed5564fa647d13304268ba4436b">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/spdd.png" alt="Software Project Presentation" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">SPP</h3>
-
-                <p class="project-category">Sources</p>
-
-              </a>
-            </li>
-            
-            <li class="project-item  active" data-filter-item data-category="sources">
-              <a href="https://gist.github.com/the-abra/2b83697adbfd6117b3628377c3c32c15">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/spdd.png" alt="Mikro Servis Yapı Örneği" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MSE</h3>
-
-                <p class="project-category">Sources</p>
-
-              </a>
-            </li>
-          </ul>
-
-        </section>
-
-      </article>
-
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i data-lucide="cloud"></i>
+                        <h3 data-translate="devopsCloud">DevOps & Bulut</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">GitLab CI/CD</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">Ansible</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">ELK Stack</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i data-lucide="cpu"></i>
+                        <h3 data-translate="mechatronics">Mekatronik</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">PLC Programming</span>
+                        <span class="tag">SCADA Systems</span>
+                        <span class="tag">Industrial Automation</span>
+                        <span class="tag">Robotics</span>
+                        <span class="tag">CAD Design</span>
+                        <span class="tag">Circuit Design</span>
+                        <span class="tag">Sensor Integration</span>
+                        <span class="tag">Motor Control</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i data-lucide="code"></i>
+                        <h3 data-translate="programming">Programlama</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Go</span>
+                        <span class="tag">YAML</span>
+                        <span class="tag">JSON</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Rust</span>
+                        <span class="tag">Shell</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="contactTitle">İletişime Geçin</h2>
+                <div class="section-divider"></div>
+                <p data-translate="contactSubtitle">Bir sonraki projenizi tartışmaya veya fırsatları keşfetmeye hazır
+                    mısınız?</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-translate="letsConnect">Bağlantı Kuralım</h3>
+
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-translate="email">E-posta</h4>
+                                <p>egekilic@proton.me</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-translate="linkedin">LinkedIn</h4>
+                                <p>linkedin.com/in/ege-kılıç</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="github"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-translate="github">GitHub</h4>
+                                <p>github.com/the-abra</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interest-areas">
+                        <h4 data-translate="areasOfInterest">İlgi Alanları</h4>
+                        <div class="interest-tags">
+                            <span class="tag" data-translate="devopsConsulting">DevOps Danışmanlığı</span>
+                            <span class="tag" data-translate="cloudMigration">Bulut Geçişi</span>
+                            <span class="tag" data-translate="industrialIot">Endüstriyel IoT</span>
+                            <span class="tag" data-translate="automation">Otomasyon</span>
+                            <span class="tag" data-translate="mentoring">Mentorluk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form-container" id="contactForm" action="https://formspree.io/f/mblyzjay"
+                    method="POST">
+                    <div class="card">
+                        <h3 data-translate="sendMessage">Mesaj Gönder</h3>
+                        <div class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" data-translate="name">Ad</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" data-translate="email">E-posta</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" data-translate="subject">Konu</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-translate="message">Mesaj</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" id="submitButton" class="btn-primary">
+                                <i data-lucide="send"></i>
+                                <span data-translate="sendMessage">Mesaj Gönder</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            </form>
+        </div>
+        </div>
+    </section>
+
+    <!-- Background Elements -->
+    <div class="bg-elements">
+        <div class="bg-blob bg-blob-1"></div>
+        <div class="bg-blob bg-blob-2"></div>
+        <div class="bg-blob bg-blob-3"></div>
+        <div class="bg-grid"></div>
     </div>
 
-  </main>
+    <!-- Css -->
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            /* Colors */
+            --primary-blue: #3b82f6;
+            --primary-cyan: #06b6d4;
+            --dark-bg: #000000;
+            --dark-secondary: #111827;
+            --dark-tertiary: #1f2937;
+            --dark-quaternary: #374151;
+            --light-bg: #ffffff;
+            --light-secondary: #f8fafc;
+            --light-tertiary: #e2e8f0;
+            --light-quaternary: #cbd5e1;
+            --text-primary-dark: #ffffff;
+            --text-secondary-dark: #d1d5db;
+            --text-tertiary-dark: #9ca3af;
+            --text-primary-light: #111827;
+            --text-secondary-light: #374151;
+            --text-tertiary-light: #6b7280;
 
+            /* Spacing */
+            --container-max-width: 1200px;
+            --section-padding: 5rem 0;
+            --border-radius: 0.75rem;
 
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
 
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
 
+        /* Dark theme (default) */
+        html.dark {
+            --bg-primary: var(--dark-bg);
+            --bg-secondary: var(--dark-secondary);
+            --bg-tertiary: var(--dark-tertiary);
+            --bg-quaternary: var(--dark-quaternary);
+            --text-primary: var(--text-primary-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --text-tertiary: var(--text-tertiary-dark);
+            --border-color: rgba(59, 130, 246, 0.2);
+            --card-bg: rgba(31, 41, 55, 0.5);
+        }
 
-  <!--
-    - custom js link
-  -->
-  <script src="./js/script.js"></script>
+        /* Light theme */
+        html.light {
+            --bg-primary: var(--light-bg);
+            --bg-secondary: var(--light-secondary);
+            --bg-tertiary: var(--light-tertiary);
+            --bg-quaternary: var(--light-quaternary);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --text-tertiary: var(--text-tertiary-light);
+            --border-color: rgba(59, 130, 246, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.8);
+        }
 
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        body {
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
 
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Background Elements */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-blue);
+            top: 25%;
+            left: 25%;
+            animation-delay: 0s;
+        }
+
+        .bg-blob-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-cyan);
+            bottom: 25%;
+            right: 25%;
+            animation-delay: 2s;
+        }
+
+        .bg-blob-3 {
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--primary-blue) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 4s;
+        }
+
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition-normal);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-logo {
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+        }
+
+        .nav-logo i {
+            color: black;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            position: relative;
+            transition: var(--transition-normal);
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-cyan);
+        }
+
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-cyan);
+            transition: var(--transition-normal);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn-ghost {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-ghost:hover {
+            color: var(--primary-cyan);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-cyan);
+            border: 2px solid var(--primary-cyan);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-cyan);
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-sm {
+            background: transparent;
+            color: var(--primary-cyan);
+            border: 2px solid var(--primary-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline-sm:hover {
+            background: var(--primary-cyan);
+            color: black;
+            transform: translateY(-1px);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: relative;
+        }
+
+        .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        html.light .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        html.light .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-avatar {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .avatar {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            border: 4px solid var(--primary-cyan);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-glow {
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            right: -1rem;
+            bottom: -1rem;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.2;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--text-primary), var(--primary-blue), var(--primary-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-social {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .hero-social a {
+            color: var(--text-tertiary);
+            transition: var(--transition-normal);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .hero-social a:hover {
+            color: var(--primary-cyan);
+            transform: scale(1.1);
+        }
+
+        .hero-social i {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: var(--section-padding);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-divider {
+            width: 6rem;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
+            margin: 0 auto 2rem;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-footer {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-normal);
+        }
+
+        .card:hover {
+            border-color: var(--primary-cyan);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: var(--transition-normal);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .card-icon i {
+            color: white;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .card p {
+            color: var(--text-tertiary);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .badge-item i {
+            color: var(--primary-cyan);
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-normal);
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary-cyan);
+            transform: translateY(-5px);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header i {
+            color: var(--primary-cyan);
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: var(--transition-normal);
+        }
+
+        .skill-category:hover .skill-header i {
+            transform: scale(1.1);
+        }
+
+        .skill-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: var(--transition-normal);
+        }
+
+        .tag:hover {
+            background: rgba(6, 182, 212, 0.3);
+            color: var(--primary-cyan);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition-normal);
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-normal);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-icon i {
+            color: white;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: var(--text-tertiary);
+        }
+
+        .interest-areas h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        /* Contact Form */
+        .contact-form-container .card {
+            padding: 2rem;
+        }
+
+        .contact-form-container h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(31, 41, 55, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: var(--transition-normal);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-badges {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .bg-grid {
+                background-size: 30px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .skill-category {
+                padding: 1.5rem;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .experience-card {
+                padding: 1.5rem;
+            }
+
+            .contact-form-container .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2563eb, #0891b2);
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(6, 182, 212, 0.3);
+            color: var(--text-primary);
+        }
+
+        /* Focus styles for accessibility */
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--primary-cyan);
+            outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+
+            .nav,
+            .bg-elements {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        lucide.createIcons();
+        var form = document.getElementById("contactForm");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Başarılı gönderim – buton güncelleniyor
+                    submitButton.innerHTML = '<i data-lucide="check-circle"></i> <span>Mesaj Gönderildi</span>';
+                    submitButton.style.background = "#28a745"; // Bootstrap success green
+                    submitButton.disabled = true;
+                    form.reset();
+                } else {
+                    // Formspree hata yanıtı
+                    submitButton.innerHTML = '<i data-lucide="triangle-alert"></i> <span>Bir Hata Oluştu</span>';
+                    submitButton.style.background = "#dc3545"; // Bootstrap error red
+                    submitButton.disabled = true;
+                }
+                // Lucide ikonlarını yeniden çiz (opsiyonel)
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+            }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form"
+            });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
 </body>
 
 </html>
