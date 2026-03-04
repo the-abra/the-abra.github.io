@@ -50,61 +50,56 @@
     </nav>
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-avatar">
-                    <div class="avatar"><img src="./images/my-avatar.webp" alt="M. Ege KILIÇ" loading="lazy"></div>
-                    <div class="avatar-glow"></div>
-                </div>
-                <h1 class="hero-title">M. Ege KILIÇ</h1>
-                <div class="hero-subtitle-wrapper"><img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo"
-                        loading="lazy">
-                    <p class="hero-subtitle" data-translate="heroTitle">Gece kutsanmış Olsun</p><img
-                        src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" loading="lazy">
-                </div>
-                <p class="hero-description" data-translate="heroDescription">DevOps uygulamaları, bulut mimarisi ve
-                    mekatronik sistem entegrasyonu konularında uzmanlığımla fikirleri ölçeklenebilir çözümler daha da
-                    geliştirerek dönüştürüyorum. Yenilikçi otomasyon ve akıllı sistem tasarımı ile teknolojinin
-                    geleceğini inşa ediyorum.
-                <div class="hero-buttons"><button class="btn-primary btn-blue"><i data-lucide="download"></i> <span
-                            data-translate="downloadResume">Özgeçmiş İndir</span></button> <button
-                        class="btn-outline btn-green" onclick="window.location.href='mailto:egekili@proton.me';"><i
-                            data-lucide="mail"></i> <span data-translate="getInTouch">İletişime Geç</span></button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="aboutTitle">Hakkımda</h2>
-                <div class="section-divider"></div>
-                <p data-translate="aboutSubtitle">Yenilikçi yazılım çözümleri ve sağlam sistem mimarisi arasında köprü
-                    kuruyorum
-            </div>
-            <div class="about-content">
-                <div class="about-text-background">
-                    <div class="about-text-title">Neler yapabiliyorum?</div>
-                    <div class="about-text-text">
-                        <p data-translate="aboutDescription1">Mekatronik geçmişine sahip tutkulu bir Linux uzmanıyım. Bu
-                            kombinasyon, modern sistemlerin hem yazılım hem de donanım yönlerini anlamamı sağlayarak,
-                            karmaşık ortamlarda ölçeklenebilir çözümler uygulamada özellikle etkili olmamı mümkün
-                            kılıyor.
-                    </div>
-                </div>
-                <div class="about-cards">
+            <div class="hero-layout">
+                <div class="hero-column left">
                     <div class="card card-dark"
                         onclick="window.location.href='https://www.biblegateway.com/passage/?search=Genesis%201-3&version=NIV'">
                         <span class="tag">FIAT</span>
                     </div>
+                    <div class="card card-red" onclick="window.location.href='https://www.globalincidentmap.com/'">
+                        <span class="tag">RUAT</span>
+                    </div>
+                </div>
+
+                <div class="hero-column core">
+                    <div class="hero-content">
+                        <div class="hero-avatar">
+                            <div class="avatar"><img src="./images/my-avatar.webp" alt="M. Ege KILIÇ" loading="lazy"></div>
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <h1 class="hero-title">M. Ege KILIÇ</h1>
+                        <div class="hero-subtitle-wrapper"><img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo"
+                                loading="lazy">
+                            <p class="hero-subtitle" data-translate="heroTitle">Gece kutsanmış Olsun</p><img
+                                src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" loading="lazy">
+                        </div>
+                        <div class="about-text-background">
+                            <div class="about-text-title">Neler yapabiliyorum?</div>
+                            <div class="about-text-text">
+                                <p data-translate="aboutDescription1">Mekatronik geçmişine sahip tutkulu bir Linux uzmanıyım. Bu
+                                    kombinasyon, modern sistemlerin hem yazılım hem de donanım yönlerini anlamamı sağlayarak,
+                                    karmaşık ortamlarda ölçeklenebilir çözümler uygulamada özellikle etkili olmamı mümkün
+                                    kılıyor.
+                            </div>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn-primary btn-blue">
+                                <i data-lucide="download"></i> 
+                                <span data-translate="downloadResume">Özgeçmiş İndir</span>
+                            </button> 
+                            <button class="btn-outline btn-green" onclick="window.location.href='mailto:egekili@proton.me';">
+                                <i data-lucide="mail"></i>
+                                <span data-translate="getInTouch">İletişime Geç</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-column right">
                     <div class="card card-beige"
                         onclick="window.location.href='https://en.wikipedia.org/wiki/Lady_Justice'">
                         <span class="tag">JUSTITIA</span>
                     </div>
-
-                    <div class="card card-red" onclick="window.location.href='https://www.globalincidentmap.com/'">
-                        <span class="tag">RUAT</span>
-                    </div>
-
                     <div class="card card-blue"
                         onclick="window.location.href='https://apod.nasa.gov/apod/astropix.html'">
                         <span class="tag">CAELUM</span>
@@ -113,5 +108,6 @@
             </div>
         </div>
     </section>
+
     <canvas id="constellation-canvas"></canvas>
     <script src="js/script.js"></script>
