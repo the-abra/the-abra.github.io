@@ -25,1332 +25,200 @@
         content="Professional portfolio showcasing expertise in DevOps, cloud infrastructure, and software architecture.">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-content">
-                <div class="nav-brand">
-                    <div class="nav-logo">
-                        ⚡
-                    </div>
-                    <span>M. Ege KILIÇ</span>
-                </div>
-                <div class="nav-links">
-                    <div class="nav-menu">
-                        <a href="#about" data-translate="about">Hakkımda</a>
-                        <a href="#skills" data-translate="skills">Yetenekler</a>
-                        <a href="#contact" data-translate="contact">İletişim</a>
-                        <a href="https://meet.jit.si/TheAbraGuy" data-translate="jitsi">Jitsi</a>
-                    </div>
-                </div>
+<!-- Navigation -->
+<div id="scroll-progress"></div>
+<nav class="nav">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <span>M. Ege KILIÇ</span>
+            </div>
+            <div class="hero-social">
+                <a href="https://github.com/the-abra" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ege-kılıç" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:egekilic@proton.me">
+                    <i data-lucide="mail"></i>
+                </a>
+                <a href="https://meet.jit.si/TheAbraGuy" data-translate="jitsi">
+                    <i data-lucide="vegan"></i>
+                </a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-avatar">
-                    <div class="avatar">
-                        <img src="./static/my-avatar.png" alt="M. Ege KILIÇ">
-                    </div>
-                    <div class="avatar-glow"></div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <div class="avatar">
+                    <img src="./static/my-avatar.png" alt="M. Ege KILIÇ">
                 </div>
-
-                <h1 class="hero-title">M. Ege KILIÇ</h1>
-                <p class="hero-subtitle" data-translate="heroTitle">DevOps & Mekatronik</p>
-                <p class="hero-description" data-translate="heroDescription">
-                    DevOps uygulamaları, bulut mimarisi ve mekatronik sistem entegrasyonu konularında uzmanlığımla
-                    fikirleri ölçeklenebilir çözümlere dönüştürüyorum. Yenilikçi otomasyon ve akıllı sistem tasarımı ile
-                    teknolojinin geleceğini inşa ediyorum.
-                </p>
-                <!--
-                <div class="hero-buttons">
-                    <button class="btn-primary">
-                        <i data-lucide="download"></i>
-                        <span data-translate="downloadResume">Özgeçmiş İndir</span>
-                    </button>
-                    <button class="btn-outline">
-                        <i data-lucide="mail"></i>
-                        <span data-translate="getInTouch">İletişime Geç</span>
-                    </button>
-                </div>
-                -->
-
-                <div class="hero-social">
-                    <a href="https://github.com/the-abra" target="_blank" rel="noopener noreferrer">
-                        <i data-lucide="github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ege-kılıç" target="_blank" rel="noopener noreferrer">
-                        <i data-lucide="linkedin"></i>
-                    </a>
-                    <a href="mailto:egekilic@proton.me">
-                        <i data-lucide="mail"></i>
-                    </a>
-                </div>
+                <div class="avatar-glow"></div>
             </div>
+
+            <h1 class="hero-title">M. Ege KILIÇ</h1>
+
+            <div class="hero-subtitle-wrapper">
+                <img src="images/logo.png" alt="Logo" class="hero-subtitle-logo">
+                <p class="hero-subtitle" data-translate="heroTitle">Gece kutsanmış Olsun</p>
+                <img src="images/logo.png" alt="Logo" class="hero-subtitle-logo">
+            </div>
+            <p class="hero-description" data-translate="heroDescription">
+                DevOps uygulamaları, bulut mimarisi ve mekatronik sistem entegrasyonu konularında uzmanlığımla
+                fikirleri ölçeklenebilir çözümler daha da geliştirerek dönüştürüyorum. Yenilikçi otomasyon ve akıllı
+                sistem tasarımı ile
+                teknolojinin geleceğini inşa ediyorum.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary btn-blue">
+                    <i data-lucide="download"></i>
+                    <span data-translate="downloadResume">Özgeçmiş İndir</span>
+                </button>
+
+                <button class="btn-outline btn-green" onclick="window.location.href='mailto:egekili@proton.me';">
+                    <i data-lucide="mail"></i>
+                    <span data-translate="getInTouch">İletişime Geç</span>
+                </button>
+
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="aboutTitle">Hakkımda</h2>
-                <div class="section-divider"></div>
-                <p data-translate="aboutSubtitle">Yenilikçi yazılım çözümleri ve sağlam sistem mimarisi arasında köprü
-                    kuruyorum</p>
-            </div>
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-translate="aboutTitle">Hakkımda</h2>
+            <div class="section-divider"></div>
+            <p data-translate="aboutSubtitle">Yenilikçi yazılım çözümleri ve sağlam sistem mimarisi arasında köprü
+                kuruyorum</p>
+        </div>
 
-            <div class="about-content">
-                <div class="about-text">
+        <div class="about-content">
+            <div class="about-text-background">
+                <div class="about-text-title">
+                    Neler yapabiliyorum?
+                </div>
+                <div class="about-text-text">
                     <p data-translate="aboutDescription1">
-                        Mekatronik geçmişine sahip tutkulu bir DevOps ve Yazılım Mimarıyım. Bu kombinasyon, modern
+                        Mekatronik geçmişine sahip tutkulu bir Linux uzmanıyım. Bu kombinasyon, modern
                         sistemlerin hem yazılım hem de donanım yönlerini anlamamı sağlayarak, karmaşık ortamlarda
                         ölçeklenebilir çözümler uygulamada özellikle etkili olmamı mümkün kılıyor.
                     </p>
-                    <p data-translate="aboutDescription2">
-                        Mekatronik alanındaki ön lisans derecem ve bulut teknolojilerindeki kapsamlı deneyimimle,
-                        destekledikleri sistemleri derinlemesine anlayarak sağlam, ölçeklenebilir altyapı çözümleri
-                        yaratma konusunda uzmanlaştım. Yaklaşımım, son teknoloji DevOps uygulamalarını sağlam
-                        mühendislik prensipleriyle birleştiriyor.
-                    </p>
-                    <div class="about-badges">
-                        <div class="badge-item">
-                            <i data-lucide="graduation-cap"></i>
-                            <span data-translate="associatesDegree">Mekatronik Ön Lisans</span>
-                        </div>
-                        <div class="badge-item">
-                            <i data-lucide="award"></i>
-                            <span data-translate="awsCertified">BTK Sertifikalı</span>
-                        </div>
-                        <div class="badge-item">
-                            <i data-lucide="briefcase"></i>
-                            <span data-translate="yearsExperience">3+ Yıl Deneyim</span>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="about-cards">
-                    <div class="card">
-                        <div class="card-icon">
-                            <i data-lucide="server" width="56"></i>
-                        </div>
-                        <h3 data-translate="infrastructure">Altyapı</h3>
-                        <p data-translate="cloudOnPremise">Cloud & On-Site</p>
+            </div>
+            <div class="about-cards">
+                <div class="card card-dark">
+                    <div class="card-icon">
+                        <i data-lucide="server" width="56"></i>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i data-lucide="cog" width="56"></i>
-                        </div>
-                        <h3 data-translate="automation">Otomasyon</h3>
-                        <p data-translate="cicdIndustrial">CI/CD & Industrial</p>
+                    <h3 data-translate="infrastructure">Altyapı</h3>
+                    <p data-translate="cloudOnPremise">Cloud & On-Site</p>
+                </div>
+                <div class="card card-beige">
+                    <div class="card-icon">
+                        <i data-lucide="cog" width="56"></i>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i data-lucide="cloud" width="56"></i>
-                        </div>
-                        <h3 data-translate="cloudNative">Bulut Bilişim</h3>
-                        <p data-translate="kubernetesDocker">Kubernetes & Docker</p>
+                    <h3 data-translate="automation">Otomasyon</h3>
+                    <p data-translate="cicdIndustrial">CI/CD & Industrial</p>
+                </div>
+                <div class="card card-blue">
+                    <div class="card-icon">
+                        <i data-lucide="cloud" width="56"></i>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i data-lucide="wrench" width="56"></i>
-                        </div>
-                        <h3 data-translate="integration">Entegrasyon</h3>
-                        <p data-translate="systemsTools">Systems & Tools</p>
+                    <h3 data-translate="cloudNative">Bulut Bilişim</h3>
+                    <p data-translate="kubernetesDocker">Kubernetes & Docker</p>
+                </div>
+                <div class="card card-red">
+                    <div class="card-icon">
+                        <i data-lucide="wrench" width="56"></i>
                     </div>
+                    <h3 data-translate="integration">Entegrasyon</h3>
+                    <p data-translate="systemsTools">Systems & Tools</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="skillsTitle">Yetenekler & Uzmanlık</h2>
-                <div class="section-divider"></div>
-                <p data-translate="skillsSubtitle">Modern DevOps uygulamaları, bulut teknolojileri ve sistem
-                    entegrasyonunu kapsayan kapsamlı bir araç seti</p>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i data-lucide="cloud"></i>
-                        <h3 data-translate="devopsCloud">DevOps & Bulut</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="tag">Docker</span>
-                        <span class="tag">Kubernetes</span>
-                        <span class="tag">Jenkins</span>
-                        <span class="tag">GitLab CI/CD</span>
-                        <span class="tag">AWS</span>
-                        <span class="tag">Azure</span>
-                        <span class="tag">Terraform</span>
-                        <span class="tag">Ansible</span>
-                        <span class="tag">Prometheus</span>
-                        <span class="tag">Grafana</span>
-                        <span class="tag">ELK Stack</span>
-                        <span class="tag">Linux</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i data-lucide="cpu"></i>
-                        <h3 data-translate="mechatronics">Mekatronik</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="tag">PLC Programming</span>
-                        <span class="tag">SCADA Systems</span>
-                        <span class="tag">Industrial Automation</span>
-                        <span class="tag">Robotics</span>
-                        <span class="tag">CAD Design</span>
-                        <span class="tag">Circuit Design</span>
-                        <span class="tag">Sensor Integration</span>
-                        <span class="tag">Motor Control</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i data-lucide="code"></i>
-                        <h3 data-translate="programming">Programlama</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="tag">Linux</span>
-                        <span class="tag">Bash</span>
-                        <span class="tag">Systemd</span>
-                        <span class="tag">Networking</span>
-                        <span class="tag">Security</span>
-                        <span class="tag">Automation</span>
-                        <span class="tag">Monitoring</span>
-                        <span class="tag">Ansible</span>
-                        <span class="tag">Troubleshooting</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="contactTitle">İletişime Geçin</h2>
-                <div class="section-divider"></div>
-                <p data-translate="contactSubtitle">Bir sonraki projenizi tartışmaya veya fırsatları keşfetmeye hazır
-                    mısınız?</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3 data-translate="letsConnect">Bağlantı Kuralım</h3>
-
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i data-lucide="mail"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 data-translate="email">E-posta</h4>
-                                <p>egekilic@proton.me</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i data-lucide="linkedin"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 data-translate="linkedin">LinkedIn</h4>
-                                <p>linkedin.com/in/ege-kılıç</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i data-lucide="github"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 data-translate="github">GitHub</h4>
-                                <p>github.com/the-abra</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="interest-areas">
-                        <h4 data-translate="areasOfInterest">İlgi Alanları</h4>
-                        <div class="interest-tags">
-                            <span class="tag" data-translate="devopsConsulting">DevOps Danışmanlığı</span>
-                            <span class="tag" data-translate="cloudMigration">Bulut Geçişi</span>
-                            <span class="tag" data-translate="industrialIot">Endüstriyel IoT</span>
-                            <span class="tag" data-translate="automation">Otomasyon</span>
-                            <span class="tag" data-translate="mentoring">Mentorluk</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <form class="contact-form-container" id="contactForm" action="https://formspree.io/f/mblyzjay"
-                    method="POST">
-                    <div class="card">
-                        <h3 data-translate="sendMessage">Mesaj Gönder</h3>
-                        <div class="contact-form" id="contactForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name" data-translate="name">Ad</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" data-translate="email">E-posta</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject" data-translate="subject">Konu</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" data-translate="message">Mesaj</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" id="submitButton" class="btn-primary">
-                                <i data-lucide="send"></i>
-                                <span data-translate="sendMessage">Mesaj Gönder</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-            </form>
-        </div>
-        </div>
-    </section>
-
-    <!-- Background Elements -->
-    <div class="bg-elements">
-        <div class="bg-blob bg-blob-1"></div>
-        <div class="bg-blob bg-blob-2"></div>
-        <div class="bg-blob bg-blob-3"></div>
-        <div class="bg-grid"></div>
     </div>
-
-    <!-- Css -->
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Colors */
-            --primary-blue: #3b82f6;
-            --primary-cyan: #06b6d4;
-            --dark-bg: #000000;
-            --dark-secondary: #111827;
-            --dark-tertiary: #1f2937;
-            --dark-quaternary: #374151;
-            --light-bg: #ffffff;
-            --light-secondary: #f8fafc;
-            --light-tertiary: #e2e8f0;
-            --light-quaternary: #cbd5e1;
-            --text-primary-dark: #ffffff;
-            --text-secondary-dark: #d1d5db;
-            --text-tertiary-dark: #9ca3af;
-            --text-primary-light: #111827;
-            --text-secondary-light: #374151;
-            --text-tertiary-light: #6b7280;
-
-            /* Spacing */
-            --container-max-width: 1200px;
-            --section-padding: 5rem 0;
-            --border-radius: 0.75rem;
-
-            /* Transitions */
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-
-            /* Shadows */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Dark theme (default) */
-        html.dark {
-            --bg-primary: var(--dark-bg);
-            --bg-secondary: var(--dark-secondary);
-            --bg-tertiary: var(--dark-tertiary);
-            --bg-quaternary: var(--dark-quaternary);
-            --text-primary: var(--text-primary-dark);
-            --text-secondary: var(--text-secondary-dark);
-            --text-tertiary: var(--text-tertiary-dark);
-            --border-color: rgba(59, 130, 246, 0.2);
-            --card-bg: rgba(31, 41, 55, 0.5);
-        }
-
-        /* Light theme */
-        html.light {
-            --bg-primary: var(--light-bg);
-            --bg-secondary: var(--light-secondary);
-            --bg-tertiary: var(--light-tertiary);
-            --bg-quaternary: var(--light-quaternary);
-            --text-primary: var(--text-primary-light);
-            --text-secondary: var(--text-secondary-light);
-            --text-tertiary: var(--text-tertiary-light);
-            --border-color: rgba(59, 130, 246, 0.1);
-            --card-bg: rgba(255, 255, 255, 0.8);
-        }
-
-        body {
-            font-family: "Inter", system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Container */
-        .container {
-            max-width: var(--container-max-width);
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Background Elements */
-        .bg-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .bg-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .bg-blob-1 {
-            width: 400px;
-            height: 400px;
-            background: var(--primary-blue);
-            top: 25%;
-            left: 25%;
-            animation-delay: 0s;
-        }
-
-        .bg-blob-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--primary-cyan);
-            bottom: 25%;
-            right: 25%;
-            animation-delay: 2s;
-        }
-
-        .bg-blob-3 {
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, var(--primary-blue) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 4s;
-        }
-
-        .bg-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.5;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transition: var(--transition-normal);
-        }
-
-        .nav-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .nav-logo {
-            width: 2rem;
-            height: 2rem;
-            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 0.75rem;
-        }
-
-        .nav-logo i {
-            color: black;
-            width: 1rem;
-            height: 1rem;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            position: relative;
-            transition: var(--transition-normal);
-            padding: 0.5rem 0;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary-cyan);
-        }
-
-        .nav-menu a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-cyan);
-            transition: var(--transition-normal);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        /* Buttons */
-        .btn-ghost {
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-ghost:hover {
-            color: var(--primary-cyan);
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary-cyan);
-            border: 2px solid var(--primary-cyan);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-cyan);
-            color: black;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline-sm {
-            background: transparent;
-            color: var(--primary-cyan);
-            border: 2px solid var(--primary-cyan);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline-sm:hover {
-            background: var(--primary-cyan);
-            color: black;
-            transform: translateY(-1px);
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: relative;
-        }
-
-        .theme-toggle .sun-icon {
-            display: block;
-        }
-
-        .theme-toggle .moon-icon {
-            display: none;
-        }
-
-        html.light .theme-toggle .sun-icon {
-            display: none;
-        }
-
-        html.light .theme-toggle .moon-icon {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 5rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-avatar {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-
-        .avatar {
-            width: 10rem;
-            height: 10rem;
-            border-radius: 50%;
-            border: 4px solid var(--primary-cyan);
-            overflow: hidden;
-            position: relative;
-            z-index: 2;
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .avatar-glow {
-            position: absolute;
-            top: -1rem;
-            left: -1rem;
-            right: -1rem;
-            bottom: -1rem;
-            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
-            border-radius: 50%;
-            filter: blur(20px);
-            opacity: 0.2;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 0.2;
-            }
-
-            50% {
-                opacity: 0.4;
-            }
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 4.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--text-primary), var(--primary-blue), var(--primary-cyan));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradient 3s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--primary-cyan);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.7;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-social {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .hero-social a {
-            color: var(--text-tertiary);
-            transition: var(--transition-normal);
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-        }
-
-        .hero-social a:hover {
-            color: var(--primary-cyan);
-            transform: scale(1.1);
-        }
-
-        .hero-social i {
-            width: 2rem;
-            height: 2rem;
-        }
-
-        /* Sections */
-        .section {
-            padding: var(--section-padding);
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2.5rem, 6vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .section-divider {
-            width: 6rem;
-            height: 4px;
-            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
-            margin: 0 auto 2rem;
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section-footer {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: var(--transition-normal);
-        }
-
-        .card:hover {
-            border-color: var(--primary-cyan);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .card-icon {
-            width: 4rem;
-            height: 4rem;
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            transition: var(--transition-normal);
-        }
-
-        .card:hover .card-icon {
-            transform: scale(1.1);
-        }
-
-        .card-icon i {
-            color: white;
-            width: 2rem;
-            height: 2rem;
-        }
-
-        .card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            text-align: center;
-        }
-
-        .card p {
-            color: var(--text-tertiary);
-            text-align: center;
-            font-size: 0.875rem;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .about-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .badge-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .badge-item i {
-            color: var(--primary-cyan);
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        .about-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: var(--transition-normal);
-        }
-
-        .skill-category:hover {
-            border-color: var(--primary-cyan);
-            transform: translateY(-5px);
-        }
-
-        .skill-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-header i {
-            color: var(--primary-cyan);
-            width: 1.5rem;
-            height: 1.5rem;
-            transition: var(--transition-normal);
-        }
-
-        .skill-category:hover .skill-header i {
-            transform: scale(1.1);
-        }
-
-        .skill-header h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary-cyan);
-            border: 1px solid rgba(6, 182, 212, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: var(--transition-normal);
-        }
-
-        .tag:hover {
-            background: rgba(6, 182, 212, 0.3);
-            color: var(--primary-cyan);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        .contact-items {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: var(--transition-normal);
-        }
-
-        .contact-item:hover {
-            transform: translateX(5px);
-        }
-
-        .contact-icon {
-            width: 3rem;
-            height: 3rem;
-            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-normal);
-        }
-
-        .contact-item:hover .contact-icon {
-            transform: scale(1.1);
-        }
-
-        .contact-icon i {
-            color: white;
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        .contact-details h4 {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-details p {
-            color: var(--text-tertiary);
-        }
-
-        .interest-areas h4 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .interest-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        /* Contact Form */
-        .contact-form-container .card {
-            padding: 2rem;
-        }
-
-        .contact-form-container h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            background: rgba(31, 41, 55, 0.5);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            color: var(--text-primary);
-            font-family: inherit;
-            transition: var(--transition-normal);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-cyan);
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hero {
-                padding: 6rem 0 3rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .about-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .about-badges {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .bg-grid {
-                background-size: 30px 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 0.5rem;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.25rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
-
-            .skill-category {
-                padding: 1.5rem;
-            }
-
-            .project-content {
-                padding: 1.5rem;
-            }
-
-            .experience-card {
-                padding: 1.5rem;
-            }
-
-            .contact-form-container .card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, var(--primary-blue), var(--primary-cyan));
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #2563eb, #0891b2);
-        }
-
-        /* Selection */
-        ::selection {
-            background: rgba(6, 182, 212, 0.3);
-            color: var(--text-primary);
-        }
-
-        /* Focus styles for accessibility */
-        button:focus-visible,
-        a:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible {
-            outline: 2px solid var(--primary-cyan);
-            outline-offset: 2px;
-        }
-
-        /* Print styles */
-        @media print {
-
-            .nav,
-            .bg-elements {
-                display: none !important;
-            }
-
-            body {
-                background: white !important;
-                color: black !important;
-            }
-        }
-    </style>
-
-    <!-- JavaScript -->
-    <script>
-        lucide.createIcons();
-        var form = document.getElementById("contactForm");
-
-        async function handleSubmit(event) {
-            event.preventDefault();
-            var data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Başarılı gönderim – buton güncelleniyor
-                    submitButton.innerHTML = '<i data-lucide="check-circle"></i> <span>Mesaj Gönderildi</span>';
-                    submitButton.style.background = "#28a745"; // Bootstrap success green
-                    submitButton.disabled = true;
-                    form.reset();
-                } else {
-                    // Formspree hata yanıtı
-                    submitButton.innerHTML = '<i data-lucide="triangle-alert"></i> <span>Bir Hata Oluştu</span>';
-                    submitButton.style.background = "#dc3545"; // Bootstrap error red
-                    submitButton.disabled = true;
-                }
-                // Lucide ikonlarını yeniden çiz (opsiyonel)
-                if (window.lucide) {
-                    lucide.createIcons();
-                }
-            }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form"
-            });
-        }
-        form.addEventListener("submit", handleSubmit)
-    </script>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-translate="skillsTitle">Yetenekler</h2>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-header">
+                    <i data-lucide="cloud"></i>
+                    <h3 data-translate="devopsCloud">DevOps & Bulut</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Github Actions</span>
+                    <span class="tag">AWS</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-header">
+                    <i data-lucide="cpu"></i>
+                    <h3 data-translate="mechatronics">Mekatronik</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="tag">3D CAD Tasarım</span>
+                    <span class="tag">Elektronik Devre Tasarım</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-header">
+                    <i data-lucide="code"></i>
+                    <h3 data-translate="programming">Programlama</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="tag">Linux</span>
+                    <span class="tag">Bash</span>
+                    <span class="tag">Go Lang</span>
+                    <span class="tag">Python 3+</span>
+                    <span class="tag">Mikrodenetleyici</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Background Elements -->
+<canvas id="constellation-canvas"></canvas>
+
+<!-- Scripts -->
+<script src="js/script.js"></script>
 </body>
 
 </html>
