@@ -1,224 +1,120 @@
-<!DOCTYPE html>
-<html lang="tr" class="dark">
-
-<head>
+<!doctypehtml>
+    <html lang="tr" class="dark">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>M. Ege KILIÇ - DevOps & Mekatronik</title>
     <meta name="description"
         content="Professional portfolio showcasing expertise in DevOps, cloud infrastructure, CI/CD pipelines, and software architecture. Bridging software automation and scalable systems.">
     <meta name="keywords"
         content="DevOps, Software Architect, Cloud Infrastructure, CI/CD, Kubernetes, Docker, AWS, Azure, System Design, Microservices">
     <meta name="author" content="M. Ege KILIÇ">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="M. Ege KILIÇ - DevOps & Software Architect">
     <meta property="og:description"
         content="Professional portfolio showcasing expertise in DevOps, cloud infrastructure, and software architecture.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="tr_TR">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="M. Ege KILIÇ - DevOps & Software Architect">
     <meta name="twitter:description"
         content="Professional portfolio showcasing expertise in DevOps, cloud infrastructure, and software architecture.">
-
-    <!-- Favicon -->
-    <link rel="icon" href="/images/logo.png" type="image/x-icon">
-
-    <!-- Fonts -->
+    <link rel="icon" href="/images/logo.webp" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Marcellus&display=swap"
         rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-
-<!-- Navigation -->
-<div id="scroll-progress"></div>
-<nav class="nav">
-    <div class="container">
-        <div class="nav-content">
-            <div class="nav-brand">
-                <span>M. Ege KILIÇ</span>
+    <div id="scroll-progress"></div>
+    <div id="privilege-overlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <img src="images/logo.webp" alt="Logo">
             </div>
-            <div class="hero-social">
-                <a href="https://github.com/the-abra" target="_blank" rel="noopener noreferrer">
-                    <i data-lucide="github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ege-kılıç" target="_blank" rel="noopener noreferrer">
-                    <i data-lucide="linkedin"></i>
-                </a>
-                <a href="mailto:egekilic@proton.me">
-                    <i data-lucide="mail"></i>
-                </a>
-                <a href="https://meet.jit.si/TheAbraGuy" data-translate="jitsi">
-                    <i data-lucide="vegan"></i>
-                </a>
-            </div>
+            <p class="overlay-text" data-translate="clickToContinue">Devam Etmek İçin Tıklayın</p>
+            <div class="overlay-glow"></div>
         </div>
     </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-avatar">
-                <div class="avatar">
-                    <img src="./static/my-avatar.png" alt="M. Ege KILIÇ">
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand"><span>M. Ege KILIÇ</span></div>
+                <div class="hero-social"><a href="https://github.com/the-abra" target="_blank"
+                        rel="noopener noreferrer"><i data-lucide="github"></i> </a><a
+                        href="https://www.linkedin.com/in/ege-kılıç" target="_blank" rel="noopener noreferrer"><i
+                            data-lucide="linkedin"></i> </a><a href="mailto:egekilic@proton.me"><i
+                            data-lucide="mail"></i> </a><a href="https://meet.jit.si/TheAbraGuy"
+                        data-translate="jitsi"><i data-lucide="vegan"></i></a>
                 </div>
-                <div class="avatar-glow"></div>
             </div>
-
-            <h1 class="hero-title">M. Ege KILIÇ</h1>
-
-            <div class="hero-subtitle-wrapper">
-                <img src="images/logo.png" alt="Logo" class="hero-subtitle-logo">
-                <p class="hero-subtitle" data-translate="heroTitle">Gece kutsanmış Olsun</p>
-                <img src="images/logo.png" alt="Logo" class="hero-subtitle-logo">
-            </div>
-            <p class="hero-description" data-translate="heroDescription">
-                DevOps uygulamaları, bulut mimarisi ve mekatronik sistem entegrasyonu konularında uzmanlığımla
-                fikirleri ölçeklenebilir çözümler daha da geliştirerek dönüştürüyorum. Yenilikçi otomasyon ve akıllı
-                sistem tasarımı ile
-                teknolojinin geleceğini inşa ediyorum.
-            </p>
-            <div class="hero-buttons">
-                <button class="btn-primary btn-blue">
-                    <i data-lucide="download"></i>
-                    <span data-translate="downloadResume">Özgeçmiş İndir</span>
-                </button>
-
-                <button class="btn-outline btn-green" onclick="window.location.href='mailto:egekili@proton.me';">
-                    <i data-lucide="mail"></i>
-                    <span data-translate="getInTouch">İletişime Geç</span>
-                </button>
-
-            </div>
-
         </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 data-translate="aboutTitle">Hakkımda</h2>
-            <div class="section-divider"></div>
-            <p data-translate="aboutSubtitle">Yenilikçi yazılım çözümleri ve sağlam sistem mimarisi arasında köprü
-                kuruyorum</p>
-        </div>
-
-        <div class="about-content">
-            <div class="about-text-background">
-                <div class="about-text-title">
-                    Neler yapabiliyorum?
+    </nav>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-avatar">
+                    <div class="avatar"><img src="./images/my-avatar.webp" alt="M. Ege KILIÇ" loading="lazy"></div>
+                    <div class="avatar-glow"></div>
                 </div>
-                <div class="about-text-text">
-                    <p data-translate="aboutDescription1">
-                        Mekatronik geçmişine sahip tutkulu bir Linux uzmanıyım. Bu kombinasyon, modern
-                        sistemlerin hem yazılım hem de donanım yönlerini anlamamı sağlayarak, karmaşık ortamlarda
-                        ölçeklenebilir çözümler uygulamada özellikle etkili olmamı mümkün kılıyor.
-                    </p>
+                <h1 class="hero-title">M. Ege KILIÇ</h1>
+                <div class="hero-subtitle-wrapper"><img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo"
+                        loading="lazy">
+                    <p class="hero-subtitle" data-translate="heroTitle">Gece kutsanmış Olsun</p><img
+                        src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" loading="lazy">
+                </div>
+                <p class="hero-description" data-translate="heroDescription">DevOps uygulamaları, bulut mimarisi ve
+                    mekatronik sistem entegrasyonu konularında uzmanlığımla fikirleri ölçeklenebilir çözümler daha da
+                    geliştirerek dönüştürüyorum. Yenilikçi otomasyon ve akıllı sistem tasarımı ile teknolojinin
+                    geleceğini inşa ediyorum.
+                <div class="hero-buttons"><button class="btn-primary btn-blue"><i data-lucide="download"></i> <span
+                            data-translate="downloadResume">Özgeçmiş İndir</span></button> <button
+                        class="btn-outline btn-green" onclick="window.location.href='mailto:egekili@proton.me';"><i
+                            data-lucide="mail"></i> <span data-translate="getInTouch">İletişime Geç</span></button>
                 </div>
             </div>
-            <div class="about-cards">
-                <div class="card card-dark">
-                    <div class="card-icon">
-                        <i data-lucide="server" width="56"></i>
+        </div>
+    </section>
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="aboutTitle">Hakkımda</h2>
+                <div class="section-divider"></div>
+                <p data-translate="aboutSubtitle">Yenilikçi yazılım çözümleri ve sağlam sistem mimarisi arasında köprü
+                    kuruyorum
+            </div>
+            <div class="about-content">
+                <div class="about-text-background">
+                    <div class="about-text-title">Neler yapabiliyorum?</div>
+                    <div class="about-text-text">
+                        <p data-translate="aboutDescription1">Mekatronik geçmişine sahip tutkulu bir Linux uzmanıyım. Bu
+                            kombinasyon, modern sistemlerin hem yazılım hem de donanım yönlerini anlamamı sağlayarak,
+                            karmaşık ortamlarda ölçeklenebilir çözümler uygulamada özellikle etkili olmamı mümkün
+                            kılıyor.
                     </div>
-                    <h3 data-translate="infrastructure">Altyapı</h3>
-                    <p data-translate="cloudOnPremise">Cloud & On-Site</p>
                 </div>
-                <div class="card card-beige">
-                    <div class="card-icon">
-                        <i data-lucide="cog" width="56"></i>
-                    </div>
-                    <h3 data-translate="automation">Otomasyon</h3>
-                    <p data-translate="cicdIndustrial">CI/CD & Industrial</p>
-                </div>
-                <div class="card card-blue">
-                    <div class="card-icon">
-                        <i data-lucide="cloud" width="56"></i>
-                    </div>
-                    <h3 data-translate="cloudNative">Bulut Bilişim</h3>
-                    <p data-translate="kubernetesDocker">Kubernetes & Docker</p>
-                </div>
-                <div class="card card-red">
-                    <div class="card-icon">
-                        <i data-lucide="wrench" width="56"></i>
-                    </div>
-                    <h3 data-translate="integration">Entegrasyon</h3>
-                    <p data-translate="systemsTools">Systems & Tools</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Skills Section -->
-<section id="skills" class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 data-translate="skillsTitle">Yetenekler</h2>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-category">
-                <div class="skill-header">
-                    <i data-lucide="cloud"></i>
-                    <h3 data-translate="devopsCloud">DevOps & Bulut</h3>
-                </div>
-                <div class="skill-tags">
-                    <span class="tag">Docker</span>
-                    <span class="tag">Github Actions</span>
-                    <span class="tag">AWS</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <div class="skill-header">
-                    <i data-lucide="cpu"></i>
-                    <h3 data-translate="mechatronics">Mekatronik</h3>
-                </div>
-                <div class="skill-tags">
-                    <span class="tag">3D CAD Tasarım</span>
-                    <span class="tag">Elektronik Devre Tasarım</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <div class="skill-header">
-                    <i data-lucide="code"></i>
-                    <h3 data-translate="programming">Programlama</h3>
-                </div>
-                <div class="skill-tags">
-                    <span class="tag">Linux</span>
-                    <span class="tag">Bash</span>
-                    <span class="tag">Go Lang</span>
-                    <span class="tag">Python 3+</span>
-                    <span class="tag">Mikrodenetleyici</span>
+                <div class="about-cards">
+                    <a href="https://www.biblegateway.com/passage/?search=Genesis%201-3&version=NIV">
+                        <div class="card card-dark">
+                            <span class="tag">FIAT</span>
+                        </div>
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/Lady_Justice">
+                        <div class="card card-beige">
+                            <span class="tag">JUSTITIA</span>
+                        </div>
+                    </a>
+                    <a href="https://www.globalincidentmap.com/">
+                        <div class="card card-red">
+                            <span class="tag">RUAT</span>
+                        </div>
+                    </a>
+                    <a href="https://apod.nasa.gov/apod/astropix.html">
+                        <div class="card card-blue">
+                            <span class="tag">CAELUM</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-
-
-<!-- Background Elements -->
-<canvas id="constellation-canvas"></canvas>
-
-<!-- Scripts -->
-<script src="js/script.js"></script>
-</body>
-
-</html>
+    </section>
+    <canvas id="constellation-canvas"></canvas>
+    <script src="js/script.js"></script>
