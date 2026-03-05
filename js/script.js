@@ -5,15 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     clickSound.load();
 
     const unlockAudio = () => {
-        const sound = hoverSound.cloneNode(true);
-        sound.volume = 0; // Silent playback to satisfy policy
-        sound.play().then(() => {
-            // Success! Remove the unlock listeners
+        hoverSound.volume = 0;
+        hoverSound.play().then(() => {
             document.removeEventListener("click", unlockAudio);
             document.removeEventListener("touchstart", unlockAudio);
             document.removeEventListener("keydown", unlockAudio);
 
-            // Hide and remove the overlay
             const overlay = document.getElementById("privilege-overlay");
             if (overlay) {
                 overlay.classList.add("hidden");
@@ -22,66 +19,62 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(() => { });
     };
 
-    document.addEventListener("click", unlockAudio);
-    document.addEventListener("touchstart", unlockAudio);
-    document.addEventListener("keydown", unlockAudio);
+    document.addEventListener("click", unlockAudio, { passive: true });
+    document.addEventListener("touchstart", unlockAudio, { passive: true });
+    document.addEventListener("keydown", unlockAudio, { passive: true });
 
     const playHover = () => {
-        const sound = hoverSound.cloneNode(true);
-        sound.volume = .5;
-        sound.play().catch(() => { })
+        hoverSound.currentTime = 0;
+        hoverSound.volume = .25;
+        hoverSound.play().catch(() => { })
     };
 
     const playClick = () => {
-        const sound = clickSound.cloneNode(true);
-        sound.play().catch(() => { })
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => { })
     };
 
     const addAudioListeners = () => {
-        document.querySelectorAll("button, a").forEach(el => {
+        document.querySelectorAll("button, a, .card").forEach(el => {
             if (!el.dataset.audioBound) {
-                el.addEventListener("mouseenter", playHover);
-                el.addEventListener("click", playClick);
-                el.dataset.audioBound = "true"
+                el.addEventListener("mouseenter", playHover, { passive: true });
+                el.addEventListener("click", playClick, { passive: true });
+                el.dataset.audioBound = "true";
             }
         });
-        document.querySelectorAll(".card").forEach(el => {
-            if (!el.dataset.audioBound) {
-                el.addEventListener("mouseenter", playHover);
-                el.dataset.audioBound = "true"
-            }
-        })
     };
-
-    addAudioListeners();
 
     const canvas = document.getElementById("constellation-canvas");
     if (canvas) {
-        const ctx = canvas.getContext("2d");
+        const ctx = canvas.getContext("2d", { alpha: true });
         let particles = [];
-        const particleCount = 100;
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const particleCount = isMobile ? 40 : 80;
         const maxDistance = 150;
+        const maxDistanceSq = maxDistance * maxDistance;
         let width, height;
+
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         const resize = () => {
             width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight
+            height = canvas.height = window.innerHeight;
         };
-        window.addEventListener("resize", resize);
+        window.addEventListener("resize", resize, { passive: true });
         resize();
 
         class Particle {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.vx = (Math.random() - .5) * .3;
-                this.vy = (Math.random() - .5) * .3;
-                this.radius = Math.random() * 2;
-                this.baseOpacity = Math.random() * .5 + .2;
+                this.vx = (Math.random() - .5) * (isMobile ? .15 : .25);
+                this.vy = (Math.random() - .5) * (isMobile ? .15 : .25);
+                this.radius = Math.random() * (isMobile ? 1.2 : 1.8);
+                this.baseOpacity = Math.random() * .4 + .1;
                 this.opacity = this.baseOpacity;
-                this.twinkleSpeed = Math.random() * .02 + .005;
+                this.twinkleSpeed = Math.random() * .01 + .005;
                 const colors = ["rgba(255, 201, 71, ", "rgba(224, 224, 224, ", "rgba(255, 255, 255, "];
-                this.colorBase = colors[Math.floor(Math.random() * colors.length)]
+                this.colorBase = colors[Math.floor(Math.random() * colors.length)];
             }
 
             update() {
@@ -91,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (this.x > width) this.x = 0;
                 if (this.y < 0) this.y = height;
                 if (this.y > height) this.y = 0;
-                this.opacity = this.baseOpacity + Math.sin(Date.now() * this.twinkleSpeed) * .2
+                this.opacity = this.baseOpacity + Math.sin(Date.now() * this.twinkleSpeed) * .1;
             }
 
             draw() {
@@ -99,74 +92,92 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fillStyle = this.colorBase + this.opacity + ")";
                 ctx.fill();
-                if (this.opacity > .5) {
-                    ctx.shadowBlur = 10;
-                    ctx.shadowColor = this.colorBase + "0.5)"
-                } else {
-                    ctx.shadowBlur = 0
-                }
             }
         }
 
         const init = () => {
+            particles = [];
             for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle)
+                particles.push(new Particle());
             }
         };
 
         const animate = () => {
+            if (prefersReducedMotion) return;
+            
             ctx.clearRect(0, 0, width, height);
-            particles.forEach((p, i) => {
+            
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
                 p.update();
                 p.draw();
+                
                 for (let j = i + 1; j < particles.length; j++) {
                     const p2 = particles[j];
                     const dx = p.x - p2.x;
                     const dy = p.y - p2.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < maxDistance) {
+                    const distSq = dx * dx + dy * dy;
+                    
+                    if (distSq < maxDistanceSq) {
+                        const dist = Math.sqrt(distSq);
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
-                        const lineOpacity = .15 * (1 - dist / maxDistance);
+                        const lineOpacity = .12 * (1 - dist / maxDistance);
                         ctx.strokeStyle = `rgba(255, 201, 71, ${lineOpacity})`;
-                        ctx.lineWidth = .4;
-                        ctx.stroke()
+                        ctx.lineWidth = .3;
+                        ctx.stroke();
                     }
                 }
-            });
-            requestAnimationFrame(animate)
+            }
+            requestAnimationFrame(animate);
         };
 
         init();
-        animate()
+        if (!prefersReducedMotion) animate();
     }
 
     const progressBar = document.getElementById("scroll-progress");
-    window.addEventListener("scroll", () => {
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = window.scrollY / totalHeight * 100;
-        if (progressBar) {
-            progressBar.style.width = scrollPercent + "%" }
-    });
-
     const nav = document.querySelector(".nav");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            nav.style.padding = "1rem 0";
-            nav.style.background = "rgba(10, 25, 49, 0.6)";
-            nav.style.backdropFilter = "blur(25px) saturate(180%)";
-            nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)"
-        } else {
-            nav.style.padding = "1.5rem 0";
-            nav.style.background = "rgba(10, 25, 49, 0.4)";
-            nav.style.backdropFilter = "blur(25px) saturate(180%)";
-            nav.style.boxShadow = "none"
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateScroll = () => {
+        const scrollY = window.scrollY;
+        
+        // Progress bar
+        if (progressBar) {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollY / totalHeight) * 100;
+            progressBar.style.width = scrollPercent + "%";
         }
-    });
+
+        // Nav
+        if (nav) {
+            if (scrollY > 50) {
+                nav.style.padding = "1rem 0";
+                nav.style.background = "rgba(10, 25, 49, 0.7)";
+                nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
+            } else {
+                nav.style.padding = "1.5rem 0";
+                nav.style.background = "rgba(10, 25, 49, 0.4)";
+                nav.style.boxShadow = "none";
+            }
+        }
+
+        lastScrollY = scrollY;
+        ticking = false;
+    };
+
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateScroll);
+            ticking = true;
+        }
+    }, { passive: true });
 
     if (window.lucide) {
         lucide.createIcons();
-        addAudioListeners()
     }
+    addAudioListeners();
 });
