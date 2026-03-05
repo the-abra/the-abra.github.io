@@ -25,9 +25,9 @@
     <!-- Preload critical assets -->
     <link rel="preload" as="image" href="images/background2.webp">
     <link rel="preload" as="image" href="images/logo.webp">
+    <link rel="preload" as="image" href="images/my-avatar.webp" fetchpriority="high">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Marcellus&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Marcellus&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Marcellus&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
     
@@ -41,7 +41,7 @@
     <div id="privilege-overlay">
         <div class="overlay-content">
             <div class="overlay-icon">
-                <img src="images/logo.webp" alt="Logo" width="120" height="120" decoding="async">
+                <img src="images/logo.webp" alt="Logo" width="120" height="120" decoding="async" loading="eager">
             </div>
             <p class="overlay-text" data-translate="clickToContinue">Devam Etmek İçin Tıklayın</p>
             <div class="overlay-glow"></div>
@@ -78,15 +78,15 @@
                     <div class="hero-content">
                         <div class="hero-avatar">
                             <div class="avatar">
-                                <img src="./images/my-avatar.webp" alt="M. Ege KILIÇ" width="180" height="180" decoding="async">
+                                <img src="./images/my-avatar.webp" alt="M. Ege KILIÇ" width="180" height="180" decoding="async" loading="eager">
                             </div>
                             <div class="avatar-glow"></div>
                         </div>
                         <h1 class="hero-title">M. Ege KILIÇ</h1>
                         <div class="hero-subtitle-wrapper">
-                            <img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" width="30" height="30" decoding="async">
+                            <img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" width="30" height="30" decoding="async" loading="lazy">
                             <p class="hero-subtitle" data-translate="heroTitle">Gece kutsanmış Olsun</p>
-                            <img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" width="30" height="30" decoding="async">
+                            <img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" width="30" height="30" decoding="async" loading="lazy">
                         </div>
                         <div class="about-text-background">
                             <div class="about-text-title">Neler yapabiliyorum?</div>

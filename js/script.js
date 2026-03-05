@@ -1,3 +1,12 @@
+// Register Service Worker for offline support and performance
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registered'))
+            .catch(err => console.log('Service Worker registration failed: ', err));
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const hoverSound = new Audio("static/hover.webm");
     const clickSound = new Audio("static/click.webm");

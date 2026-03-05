@@ -486,6 +486,48 @@ h4 {
     .container {
         padding: 0 1.5rem
     }
+    
+    /* Disable expensive animations on mobile if needed or simplify them */
+    .hero-avatar::before,
+    .hero-avatar::after {
+        animation-duration: 15s; /* Slow down for mobile CPU */
+    }
+    
+    .card:hover {
+        transform: translateY(-5px); /* Less dramatic for mobile */
+    }
+
+    /* Reduce blur on mobile for performance */
+    @supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
+        .card, #privilege-overlay {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .nav {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    }
+    
+    .about-text-background {
+        width: 100%;
+        max-width: 512px;
+        height: auto;
+        min-height: 222px;
+        background-size: 100% 100%;
+    }
+    
+    .about-text-text {
+        width: 90%;
+        height: auto;
+        padding-bottom: 20px;
+    }
+}
+
+/* Performance optimization for off-screen content */
+section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
 }
 
 @media (max-width: 992px) {
