@@ -8,38 +8,34 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const hoverSound = new Audio("static/hover.webm");
-    const clickSound = new Audio("static/click.webm");
-    hoverSound.load();
-    clickSound.load();
+    const unlockAudioAndHideOverlay = () => {
+        // Play a dummy sound to unlock audio playback
+        const clickSound = new Audio("static/click.webm");
+        clickSound.volume = 0;
+        clickSound.play().catch(() => {});
 
-    const unlockAudio = () => {
-        hoverSound.volume = 0;
-        hoverSound.play().then(() => {
-            document.removeEventListener("click", unlockAudio);
-            document.removeEventListener("touchstart", unlockAudio);
-            document.removeEventListener("keydown", unlockAudio);
-
-            const overlay = document.getElementById("privilege-overlay");
-            if (overlay) {
-                overlay.classList.add("hidden");
-                setTimeout(() => overlay.remove(), 800);
-            }
-        }).catch(() => { });
+        const overlay = document.getElementById("privilege-overlay");
+        if (overlay) {
+            overlay.classList.add("hidden");
+            setTimeout(() => overlay.remove(), 800);
+        }
+        document.removeEventListener("click", unlockAudioAndHideOverlay);
+        document.removeEventListener("touchstart", unlockAudioAndHideOverlay);
+        document.removeEventListener("keydown", unlockAudioAndHideOverlay);
     };
 
-    document.addEventListener("click", unlockAudio, { passive: true });
-    document.addEventListener("touchstart", unlockAudio, { passive: true });
-    document.addEventListener("keydown", unlockAudio, { passive: true });
+    document.addEventListener("click", unlockAudioAndHideOverlay, { passive: true });
+    document.addEventListener("touchstart", unlockAudioAndHideOverlay, { passive: true });
+    document.addEventListener("keydown", unlockAudioAndHideOverlay, { passive: true });
 
     const playHover = () => {
-        hoverSound.currentTime = 0;
+        const hoverSound = new Audio("static/hover.webm");
         hoverSound.volume = .25;
         hoverSound.play().catch(() => { })
     };
 
     const playClick = () => {
-        clickSound.currentTime = 0;
+        const clickSound = new Audio("static/click.webm");
         clickSound.play().catch(() => { })
     };
 
