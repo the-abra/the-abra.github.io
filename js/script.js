@@ -181,8 +181,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, { passive: true });
 
-    if (window.lucide) {
-        lucide.createIcons();
-    }
+    const loadIcons = async () => {
+        const iconElements = document.querySelectorAll("[data-lucide]");
+        for (const el of iconElements) {
+            const iconName = el.getAttribute("data-lucide");
+            try {
+                const response = await fetch(`images/lucide/${iconName}.svg`);
+                if (!response.ok) continue;
+                const svgContent = await response.text();
+                
+                // Parse the SVG string to a document element
+                const parser = new DOMParser();
+                const svgDoc = parser.parseFromString(svgContent, "image/svg+xml");
+                const svgElement = svgDoc.querySelector("svg");
+                
+                if (svgElement) {
+                    // Copy existing classes to the new SVG
+                    el.classList.forEach(cls => svgElement.classList.add(cls));
+                    
+                    // Copy data attributes
+                    Object.keys(el.dataset).forEach(key => {
+                        svgElement.dataset[key] = el.dataset[key];
+                    });
+
+                    // Replace original element with the SVG
+                    el.replaceWith(svgElement);
+                }
+            } catch (err) {
+                console.error(`Error loading icon ${iconName}:`, err);
+            }
+        }
+    };
+
+    loadIcons();
     addAudioListeners();
 });

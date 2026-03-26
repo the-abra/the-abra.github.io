@@ -20,7 +20,6 @@
     <!-- Preconnect to external origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com">
     
     <!-- Preload critical assets -->
     <link rel="preload" as="image" href="images/background2.webp">
@@ -32,7 +31,6 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Use defer for scripts to prevent render blocking -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -56,7 +54,7 @@
                     <a href="https://github.com/the-abra" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github"></i> </a>
                     <a href="https://www.linkedin.com/in/ege-kılıç" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i> </a>
                     <a href="mailto:egekilic@proton.me" aria-label="Mail"><i data-lucide="mail"></i> </a>
-                    <a href="https://meet.jit.si/TheAbraGuy" data-translate="jitsi" aria-label="Jitsi Meet"><i data-lucide="vegan"></i></a>
+                    <a href="https://meet.jit.si/TheAbraGuy" data-translate="jitsi" aria-label="Jitsi Meet"><i data-lucide="airplay"></i></a>
                 </div>
             </div>
         </div>
@@ -66,6 +64,10 @@
         <div class="container">
             <div class="hero-layout">
                 <div class="hero-column left">
+                    <button class="btn-primary btn-blue">
+                        <i data-lucide="download"></i> 
+                        <span data-translate="downloadResume">Özgeçmiş İndir</span>
+                    </button> 
                     <div class="card card-dark" onclick="window.location.href='https://www.biblegateway.com/passage/?search=Genesis%201-3&version=NIV'">
                         <span class="tag">FIAT</span>
                     </div>
@@ -82,7 +84,7 @@
                             </div>
                             <div class="avatar-glow"></div>
                         </div>
-                        <h1 class="hero-title">M. Ege KILIÇ</h1>
+                        
                         <div class="hero-subtitle-wrapper">
                             <img src="images/logo.webp" alt="Logo" class="hero-subtitle-logo" width="30" height="30" decoding="async" loading="lazy">
                             <p class="hero-subtitle" data-translate="heroTitle">Gece kutsanmış Olsun</p>
@@ -94,20 +96,14 @@
                                 <p data-translate="aboutDescription1">Mekatronik geçmişine sahip tutkulu bir Linux uzmanıyım. Bu kombinasyon, modern sistemlerin hem yazılım hem de donanım yönlerini anlamamı sağlayarak, karmaşık ortamlarda ölçeklenebilir çözümler uygulamada özellikle etkili olmamı mümkün kılıyor.</p>
                             </div>
                         </div>
-                        <div class="hero-buttons">
-                            <button class="btn-primary btn-blue">
-                                <i data-lucide="download"></i> 
-                                <span data-translate="downloadResume">Özgeçmiş İndir</span>
-                            </button> 
-                            <button class="btn-outline btn-green" onclick="window.location.href='mailto:egekili@proton.me';">
-                                <i data-lucide="mail"></i>
-                                <span data-translate="getInTouch">İletişime Geç</span>
-                            </button>
-                        </div>
                     </div>
                 </div>
 
                 <div class="hero-column right">
+                    <button class="btn-outline btn-green" onclick="window.location.href='mailto:egekili@proton.me';">
+                        <i data-lucide="mail"></i>
+                        <span data-translate="getInTouch">İletişime Geç</span>
+                    </button>
                     <div class="card card-beige" onclick="window.location.href='https://en.wikipedia.org/wiki/Lady_Justice'">
                         <span class="tag">JUSTITIA</span>
                     </div>
