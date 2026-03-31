@@ -66,10 +66,10 @@
                         <span data-translate="downloadResume">CURRICULUM VITAE</span>
                     </button>
                     <div class="card card-dark" onclick="window.location.href='https://www.esv.org/Genesis+1/'">
-                        <span class="tag">FIAT</span>
+                        <span class="tag" onclick="event.stopPropagation(); window.openPoem('FIAT')">FIAT</span>
                     </div>
                     <div class="card card-red" onclick="window.location.href='https://liveuamap.com/'">
-                        <span class="tag">RUAT</span>
+                        <span class="tag" onclick="event.stopPropagation(); window.openPoem('RUAT')">RUAT</span>
                     </div>
                 </div>
 
@@ -101,15 +101,34 @@
                         <span data-translate="getInTouch">MECUM LOQUERE</span>
                     </button>
                     <div class="card card-beige" onclick="window.location.href='https://www.wikiwand.com/en/Lady_Justice'">
-                        <span class="tag">JUSTITIA</span>
+                        <span class="tag" onclick="event.stopPropagation(); window.openPoem('JUSTITIA')">JUSTITIA</span>
                     </div>
                     <div class="card card-blue" onclick="window.location.href='https://www.solarsystemscope.com/iframe'">
-                        <span class="tag">CAELUM</span>
+                        <span class="tag" onclick="event.stopPropagation(); window.openPoem('CAELUM')">CAELUM</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="poem-overlay">
+        <div class="poem-container">
+            <img src="images/467x871-long-card-beige.png" class="poem-card-bg" alt="Poem Card">
+            <button class="poem-close-btn" onclick="window.closePoem()">
+                <img src="images/close-btn.png" alt="Close">
+            </button>
+            <button class="poem-nav-btn prev" onclick="window.prevPoem()">
+                <img src="images/PageUpIcon.png" alt="Previous">
+            </button>
+            <button class="poem-nav-btn next" onclick="window.nextPoem()">
+                <img src="images/PageUpIcon.png" alt="Next">
+            </button>
+            <div class="poem-content">
+                <h2 id="poem-title"></h2>
+                <div id="poem-body"></div>
+            </div>
+        </div>
+    </div>
 
     <canvas id="constellation-canvas"></canvas>
 </body>

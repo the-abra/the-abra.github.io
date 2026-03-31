@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const addAudioListeners = () => {
         document.querySelectorAll("button, a, .card").forEach(el => {
             if (!el.dataset.audioBound) {
+                // Skip global audio for poem navigation buttons
+                if (el.classList.contains('poem-nav-btn')) return;
+
                 el.addEventListener("mouseenter", playHover, { passive: true });
                 el.addEventListener("click", playClick, { passive: true });
                 el.dataset.audioBound = "true";
@@ -215,4 +218,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadIcons();
     addAudioListeners();
+
+    // Poem Logic
+    const poems = [
+        {
+            title: "Umbra Salutis",
+            body: "Inanis est vertex, et nubila vacua sunt, \nSed in mendacio magno, portum inveni. \nAngeli pugnant ubi nihil est nisi ventus,\nEt dæmones rident in silentio noctis.\n\nHoc bellum fictum mihi finem donat, \nEt fabula vana cor meum erigit. \nO Deus qui non es, \nsub umbra tua quiesco, \nQuia lux veritatis nimis frigida est.\n\nNon est caelum, sed est pax; \nIn sancto mendacio, beatus et fortis ero."
+        },
+        {
+            title: "FIAT",
+            body: "Fiat mundus ex lacrimis et somniis,\nUbi nihil erat, nunc exercitus stat.\nMento mihi ut mens non frangatur, \nEt in hac visione, timor perit.\n\nManus mea caelum sculpsit in vacuo, \nEt cor meum daemonem genuit ut pugnet. \nHic est labor meus: vitam fingere, \nUbi mors sola et nuda regnat.\n\nFiat lux ficta, quia vera nox saeva est; \nEgo sum creator dei qui me servat."
+        },
+        {
+            title: "JUSTITIA",
+            body: "Non est lex in caelo vacuo, \nSed in mente mea, justitia regnat.\nLibra non peccata, sed somnia ponderat,\nEt praemium est pax in mendacio.\n\nQuid est justum in orbe frigido? \nJustum est ridere ubi mors clamat.\nJustum est fingere regnum ubi desertum est,\nEt amare deum qui non est.\n\nHaec est lex mea, hoc est ius fati: \nMendacium sanctum pro animae salute.\nFiat justitia mea, etiamsi mundus inanis est."
+        },
+        {
+            title: "RUAT",
+            body: "Caelum ruit, sed ego non peribo, \nQuia mundus meus in ruderibus vivit. \nVeritas est lapis frigidus et gravis, \nQui omnia somnia conterere vult.\n\nRuat caelum, ruat pax mundi, \nSed fides mea in nihilo me tenet. \nDum omnia cadunt, ego rideo, \nIn asylo mentis, ubi mendacium vincit.\n\nO Deus qui non es, si ruit sedes tua, \nEgo te iterum e pulvere fingam. \nNam sine te, abyssus me devorat; \nCum te, mors sola est fabula parva."
+        },
+        {
+            title: "CAELUM",
+            body: "Caelum inane est, sed oculos meos fallit;\nIbi stellas pingo, ne nox sola sit. \nIn altis, angeli et daemones perpetuo certant, \nEt sanguis eorum fictus est vita mea.\n\nO Caelum mendax, o arca mentis meae, \nTu es tegmen contra infinitum frigus. \nNon est numen supra nubila, sed amor fati,\nQui hanc fabulam texit pro me.\n\nHoc est caelum meum: non locus spirituum, \nSed murus contra veritatem saevam. \nIn hoc mendacio, denique respire."
+        }
+    ];
+
+    let currentPoemIndex = 0;
+    const poemOverlay = document.getElementById("poem-overlay");
+    const poemTitle = document.getElementById("poem-title");
+    const poemBody = document.getElementById("poem-body");
+    const openSound = new Audio("static/open-page-sfx.webm");
+    const switchSound = new Audio("static/switch-page-sfx.webm");
+
+    window.openPoem = (name) => {
+        const index = poems.findIndex(p => p.title.toUpperCase() === name.toUpperCase());
+        if (index !== -1) {
+            currentPoemIndex = index;
+            updatePoemDisplay();
+            poemOverlay.classList.add("active");
+            openSound.play().catch(() => {});
+        }
+    };
+
+    window.closePoem = () => {
+        poemOverlay.classList.remove("active");
+    };
+
+    window.prevPoem = () => {
+        currentPoemIndex = (currentPoemIndex - 1 + poems.length) % poems.length;
+        updatePoemDisplay();
+        switchSound.currentTime = 0;
+        switchSound.play().catch(() => {});
+    };
+
+    window.nextPoem = () => {
+        currentPoemIndex = (currentPoemIndex + 1) % poems.length;
+        updatePoemDisplay();
+        switchSound.currentTime = 0;
+        switchSound.play().catch(() => {});
+    };
+
+    const updatePoemDisplay = () => {
+        const poem = poems[currentPoemIndex];
+        poemTitle.textContent = poem.title;
+        poemBody.innerHTML = poem.body.split('\n').map(line => `<p>${line || '&nbsp;'}</p>`).join('');
+    };
+
+    // Close on overlay click
+    poemOverlay.addEventListener("click", (e) => {
+        if (e.target === poemOverlay) {
+            window.closePoem();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+        if (!poemOverlay.classList.contains("active")) return;
+        
+        if (e.key === "ArrowLeft") {
+            window.prevPoem();
+        } else if (e.key === "ArrowRight") {
+            window.nextPoem();
+        } else if (e.key === "Escape") {
+            window.closePoem();
+        }
+    });
 });
