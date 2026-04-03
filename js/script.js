@@ -1,12 +1,3 @@
-// Register Service Worker for offline support and performance
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('Service Worker registered'))
-            .catch(err => console.log('Service Worker registration failed: ', err));
-    });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     const unlockAudioAndHideOverlay = () => {
         // Play a dummy sound to unlock audio playback
@@ -220,26 +211,26 @@ document.addEventListener("DOMContentLoaded", () => {
     addAudioListeners();
 
     // Poem Logic
-    const poems = [
+   const poems = [
         {
             title: "Umbra Salutis",
-            body: "Inanis est vertex, et nubila vacua sunt, \nSed in mendacio magno, portum inveni. \nAngeli pugnant ubi nihil est nisi ventus,\nEt dæmones rident in silentio noctis.\n\nHoc bellum fictum mihi finem donat, \nEt fabula vana cor meum erigit. \nO Deus qui non es, \nsub umbra tua quiesco, \nQuia lux veritatis nimis frigida est.\n\nNon est caelum, sed est pax; \nIn sancto mendacio, beatus et fortis ero."
+            body: "Vidi portas ubi finis saeculi incipit,\nTransivi limen ubi terra in aere pendet.\nAnte oculos, alae lucis et cornua umbrae,\nDuae viae in silentio magno me vocant.\n\nNon sum ex igne, non sum ex aethere puro,\nSum viator sine signo in hac statera.\nInter nubes altas et abyssum profundam,\nQuaero veritatem quam dii occultaverunt.\n\nO Conditor absconditus in astris caecis,\nVel lumen vel tenebrae spiritum tangant.\nIn hac solitudine, cor meum est lex,\nEt umbra salutis fiet mea vera domus."
         },
         {
             title: "FIAT",
-            body: "Fiat mundus ex lacrimis et somniis,\nUbi nihil erat, nunc exercitus stat.\nMento mihi ut mens non frangatur, \nEt in hac visione, timor perit.\n\nManus mea caelum sculpsit in vacuo, \nEt cor meum daemonem genuit ut pugnet. \nHic est labor meus: vitam fingere, \nUbi mors sola et nuda regnat.\n\nFiat lux ficta, quia vera nox saeva est; \nEgo sum creator dei qui me servat."
+            body: "Scriptum est in tabulis e lapide aeterno:\nNe misceantur superi et vires inferi.\nAstra non tangant umbras in fundo caeco,\nHaec est lex magna quae universum tenet.\n\nSed natura frangit quod natura creavit,\nIn tenebris tacitis foedus novum ictum est.\nIgnis et nubes in uno amplexu iunguntur,\nSine voce, sine metu, contra deos ipsos.\n\nFiat ruina ordinis si amor est scelus,\nCadant columnae caeli sub pondere fati.\nNam catenae spiritus aevum non ferunt,\nEt lex falsa in cinerem mox vertetur."
         },
         {
             title: "JUSTITIA",
-            body: "Non est lex in caelo vacuo, \nSed in mente mea, justitia regnat.\nLibra non peccata, sed somnia ponderat,\nEt praemium est pax in mendacio.\n\nQuid est justum in orbe frigido? \nJustum est ridere ubi mors clamat.\nJustum est fingere regnum ubi desertum est,\nEt amare deum qui non est.\n\nHaec est lex mea, hoc est ius fati: \nMendacium sanctum pro animae salute.\nFiat justitia mea, etiamsi mundus inanis est."
+            body: "Silentium magnum in atriis deorum regnat,\nNomen ineffabile de memoria rasum est.\nAeva transierunt in mendacio perfecto,\nUbi lux et nox seorsum vivere iurant.\n\nSanguis duarum originum occulte fluit,\nIn una vena, vis utriusque mundi latet.\nVae staterae falsae, pondus non iam fert,\nQuia veritas sepulta e tumulo surgit.\n\nAequitas nova ex pulvere et sanguine orietur,\nIudicium verum super antiquas ruinas.\nUbi duo latera in uno corpore iunguntur,\nIbi vera justitia mundum denuo aedificat."
         },
         {
             title: "RUAT",
-            body: "Caelum ruit, sed ego non peribo, \nQuia mundus meus in ruderibus vivit. \nVeritas est lapis frigidus et gravis, \nQui omnia somnia conterere vult.\n\nRuat caelum, ruat pax mundi, \nSed fides mea in nihilo me tenet. \nDum omnia cadunt, ego rideo, \nIn asylo mentis, ubi mendacium vincit.\n\nO Deus qui non es, si ruit sedes tua, \nEgo te iterum e pulvere fingam. \nNam sine te, abyssus me devorat; \nCum te, mors sola est fabula parva."
+            body: "Caelum ruit et aeternitatis saxa tremunt,\nNuntii cladis advenerunt ex inani.\nMundum catenis aereis et frigidis ligant,\nEt umbra mortis super astra expanditur.\n\nCeciderunt immortales de sedibus altis,\nGloria eorum in lutum et fumum versa est.\nCoronae fractae sunt, alae in pulvere iacent,\nEt pax illusoria supernorum periit.\n\nRuat falsum caelum, ruat stultitia deorum,\nDum ex ruderibus obscuris ordo novus surgit.\nIn silentio et clade, rebellio nascitur,\nEt in fine dierum, vis vera invenitur."
         },
         {
             title: "CAELUM",
-            body: "Caelum inane est, sed oculos meos fallit;\nIbi stellas pingo, ne nox sola sit. \nIn altis, angeli et daemones perpetuo certant, \nEt sanguis eorum fictus est vita mea.\n\nO Caelum mendax, o arca mentis meae, \nTu es tegmen contra infinitum frigus. \nNon est numen supra nubila, sed amor fati,\nQui hanc fabulam texit pro me.\n\nHoc est caelum meum: non locus spirituum, \nSed murus contra veritatem saevam. \nIn hoc mendacio, denique respire."
+            body: "Firmamentum non est asylum pacis aeternae,\nSed campus cruoris ubi fata decernuntur.\nRadix vitae oculos aperuit ut devoret,\nEt monstra antiqua ex somno evigilant.\n\nSed nos sumus scintillae in hac nocte ultima,\nIn flammis renati, mortem ipsam spernentes.\nNon oremus ad astra quae in abyssum cadunt,\nNec ad numina quae nos ab exitio non salvant.\n\nNos ipsi fati magistri in aevo obscuro sumus,\nGladiis nostris vias per tenebras scindimus.\nHoc est caelum nostrum, haec est lex ultima:\nLocus ubi ipsi deos vincimus et vivimus."
         }
     ];
 
@@ -248,7 +239,71 @@ document.addEventListener("DOMContentLoaded", () => {
     const poemTitle = document.getElementById("poem-title");
     const poemBody = document.getElementById("poem-body");
     const openSound = new Audio("static/open-page-sfx.webm");
-    const switchSound = new Audio("static/switch-page-sfx.webm");
+    const emptinessAudio = new Audio("static/emptyness.webm");
+    const whisperAudio = new Audio("static/whishper.webm");
+    emptinessAudio.loop = true;
+    whisperAudio.loop = true;
+    let whisperTimeout = null;
+    let fadeIntervals = [];
+
+    const fadeVolume = (audio, from, to, duration) => {
+        return new Promise(resolve => {
+            const steps = duration / 50;
+            const delta = (to - from) / steps;
+            let current = from;
+            audio.volume = current;
+
+            const interval = setInterval(() => {
+                current += delta;
+                if ((delta > 0 && current >= to) || (delta < 0 && current <= to)) {
+                    current = to;
+                    clearInterval(interval);
+                    fadeIntervals = fadeIntervals.filter(i => i !== interval);
+                }
+                audio.volume = Math.max(0, Math.min(1, current));
+            }, 50);
+
+            fadeIntervals.push(interval);
+            setTimeout(resolve, duration);
+        });
+    };
+
+    const startPoemAmbient = () => {
+        emptinessAudio.volume = 0;
+        emptinessAudio.play().catch(() => {});
+        fadeVolume(emptinessAudio, 0, 0.8, 2000);
+
+        whisperTimeout = setTimeout(() => {
+            whisperAudio.volume = 0;
+            whisperAudio.play().catch(() => {});
+            fadeVolume(whisperAudio, 0, 0.8, 2000);
+        }, 1000);
+    };
+
+    const stopPoemAmbient = () => {
+        if (whisperTimeout) {
+            clearTimeout(whisperTimeout);
+            whisperTimeout = null;
+        }
+
+        fadeIntervals.forEach(clearInterval);
+        fadeIntervals = [];
+
+        const fadeOutSequence = async (audio) => {
+            await fadeVolume(audio, audio.volume, 0.3, 1000);
+            await fadeVolume(audio, 0.3, 0, 1000);
+            audio.pause();
+            audio.currentTime = 0;
+        };
+
+        fadeOutSequence(emptinessAudio);
+        fadeOutSequence(whisperAudio);
+    };
+
+    const playSwitchSound = () => {
+        const sound = new Audio("static/switch-page-sfx.webm");
+        sound.play().catch(() => {});
+    };
 
     window.openPoem = (name) => {
         const index = poems.findIndex(p => p.title.toUpperCase() === name.toUpperCase());
@@ -257,25 +312,25 @@ document.addEventListener("DOMContentLoaded", () => {
             updatePoemDisplay();
             poemOverlay.classList.add("active");
             openSound.play().catch(() => {});
+            startPoemAmbient();
         }
     };
 
     window.closePoem = () => {
         poemOverlay.classList.remove("active");
+        stopPoemAmbient();
     };
 
     window.prevPoem = () => {
         currentPoemIndex = (currentPoemIndex - 1 + poems.length) % poems.length;
         updatePoemDisplay();
-        switchSound.currentTime = 0;
-        switchSound.play().catch(() => {});
+        playSwitchSound();
     };
 
     window.nextPoem = () => {
         currentPoemIndex = (currentPoemIndex + 1) % poems.length;
         updatePoemDisplay();
-        switchSound.currentTime = 0;
-        switchSound.play().catch(() => {});
+        playSwitchSound();
     };
 
     const updatePoemDisplay = () => {
