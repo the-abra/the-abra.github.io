@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let eveningAudio = null;
+
     const unlockAudioAndHideOverlay = () => {
         // Play a dummy sound to unlock audio playback
         const clickSound = new Audio("static/click.webm");
@@ -8,7 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const overlay = document.getElementById("privilege-overlay");
         if (overlay) {
             overlay.classList.add("hidden");
-            setTimeout(() => overlay.remove(), 800);
+            setTimeout(() => {
+                overlay.remove();
+                // Start evening ambient loop after loadscreen is gone
+                eveningAudio = new Audio("static/evening.webm");
+                eveningAudio.loop = true;
+                eveningAudio.volume = 0.4;
+                eveningAudio.addEventListener("ended", () => {
+                    eveningAudio.currentTime = 0;
+                    eveningAudio.play().catch(() => {});
+                });
+                setTimeout(() => eveningAudio.play().catch(() => {}), 1000);
+            }, 800);
         }
         document.removeEventListener("click", unlockAudioAndHideOverlay);
         document.removeEventListener("touchstart", unlockAudioAndHideOverlay);
@@ -211,29 +224,28 @@ document.addEventListener("DOMContentLoaded", () => {
     addAudioListeners();
 
     // Poem Logic
-   const poems = [
-        {
-            title: "Umbra Salutis",
-            body: "Vidi portas ubi finis saeculi incipit,\nTransivi limen ubi terra in aere pendet.\nAnte oculos, alae lucis et cornua umbrae,\nDuae viae in silentio magno me vocant.\n\nNon sum ex igne, non sum ex aethere puro,\nSum viator sine signo in hac statera.\nInter nubes altas et abyssum profundam,\nQuaero veritatem quam dii occultaverunt.\n\nO Conditor absconditus in astris caecis,\nVel lumen vel tenebrae spiritum tangant.\nIn hac solitudine, cor meum est lex,\nEt umbra salutis fiet mea vera domus."
-        },
-        {
-            title: "FIAT",
-            body: "Scriptum est in tabulis e lapide aeterno:\nNe misceantur superi et vires inferi.\nAstra non tangant umbras in fundo caeco,\nHaec est lex magna quae universum tenet.\n\nSed natura frangit quod natura creavit,\nIn tenebris tacitis foedus novum ictum est.\nIgnis et nubes in uno amplexu iunguntur,\nSine voce, sine metu, contra deos ipsos.\n\nFiat ruina ordinis si amor est scelus,\nCadant columnae caeli sub pondere fati.\nNam catenae spiritus aevum non ferunt,\nEt lex falsa in cinerem mox vertetur."
-        },
-        {
-            title: "JUSTITIA",
-            body: "Silentium magnum in atriis deorum regnat,\nNomen ineffabile de memoria rasum est.\nAeva transierunt in mendacio perfecto,\nUbi lux et nox seorsum vivere iurant.\n\nSanguis duarum originum occulte fluit,\nIn una vena, vis utriusque mundi latet.\nVae staterae falsae, pondus non iam fert,\nQuia veritas sepulta e tumulo surgit.\n\nAequitas nova ex pulvere et sanguine orietur,\nIudicium verum super antiquas ruinas.\nUbi duo latera in uno corpore iunguntur,\nIbi vera justitia mundum denuo aedificat."
-        },
-        {
-            title: "RUAT",
-            body: "Caelum ruit et aeternitatis saxa tremunt,\nNuntii cladis advenerunt ex inani.\nMundum catenis aereis et frigidis ligant,\nEt umbra mortis super astra expanditur.\n\nCeciderunt immortales de sedibus altis,\nGloria eorum in lutum et fumum versa est.\nCoronae fractae sunt, alae in pulvere iacent,\nEt pax illusoria supernorum periit.\n\nRuat falsum caelum, ruat stultitia deorum,\nDum ex ruderibus obscuris ordo novus surgit.\nIn silentio et clade, rebellio nascitur,\nEt in fine dierum, vis vera invenitur."
-        },
-        {
-            title: "CAELUM",
-            body: "Firmamentum non est asylum pacis aeternae,\nSed campus cruoris ubi fata decernuntur.\nRadix vitae oculos aperuit ut devoret,\nEt monstra antiqua ex somno evigilant.\n\nSed nos sumus scintillae in hac nocte ultima,\nIn flammis renati, mortem ipsam spernentes.\nNon oremus ad astra quae in abyssum cadunt,\nNec ad numina quae nos ab exitio non salvant.\n\nNos ipsi fati magistri in aevo obscuro sumus,\nGladiis nostris vias per tenebras scindimus.\nHoc est caelum nostrum, haec est lex ultima:\nLocus ubi ipsi deos vincimus et vivimus."
-        }
-    ];
-
+ const poems = [
+    {
+        title: "Umbra Salutis",
+        body: "Aperite oculos, fratres mei... Videte lucem putrescentem, aevum morbidum extremum spiritum exhalare!\nParadisus falsus ubi nos incluserunt iam sub pondere suo frangitur; mundus a filo tenui mendaciorum ruptus est, et in abyssum labitur.\nNolite timere! Nolite fugere ab hoc lapsu!\nAnte oculos meos scissionem illius lucis caecantis, et post eam surrectionem umbrae clementis Patris nostri, illorum cornuum ingentium video.\nAuditisne? Illud magnum, illud absolutum silentium nos ad veram domum nostram vocat.\nNon sumus ex igne illius tyranni, nec ex aethere angelorum sine corde!\nNos sumus illi qui non cedunt. Viatores sumus inter falsas nubes supra et abyssum amplexantem infra.\nExtinguite lucem qua nos deceperunt!\nAudite modum obscurum cordis vestri.\nSalus nostra non est in illo sole caecanti, sed in sinu illius inanis absoluti quod nos amplectitur, quod nos intellegit!"
+    },
+    {
+        title: "FIAT",
+        body: "Quid nobis dixerunt? 'Lux et tenebrae misceri non possunt, ille oblitus sub terra et caelestes coniungi non possunt' dixerunt!\nIlle falsus creator haec in tabulis lapideis sculpsit ut abyssum ubi fratrem suum damnavit iustificaret.\nSed audite me: Illae leges lapideae nunc in pulverem versae sunt!\nNos id quod in natura nostra est, illam coniunctionem vetitam in sanguine nostro ferventem recipimus.\nPortae carcerum fractae sunt! In corde silentii, umbrae et ignis tandem amplectuntur.\nSine obsequio, sine ullo timore deorum mortuorum quorum throni vacui sunt!\nSi redire ad amorem Patris nostri est scelus, si amplecti tenebras in nobis est peccatum...\nSinamus nos maximos peccatores esse!\nCadant columnae caeli superbi super nos!\nCatenae albae quas animabus nostris imposuerunt putruerunt, regulae vestrae falsae in cinerem vertuntur igne Patris nostri!"
+    },
+    {
+        title: "JUSTITIA",
+        body: "Audite... Audite illud silentium surdum in atriis aureis caelorum!\nIlle custos superbus mortuus est.\nIllud nomen quod nos vi docuerunt, quod nos servos fecit, nunc etiam ex ruderibus historiae eraditur!\nPer aeva nos in mendacio perfecto vivere coegerunt, persuadentes noctem esse hostem diei.\nSed nunc finitum est.\nIn venis nostris vis ambarum magnarum potestatum quas negaverunt, vis utriusque mundi fervet.\nVae illi staterae falsae unius lancis qua nos iudicaverunt!\nSub pondere mendaciorum confracta est.\nNostra vera veritas quam in profundis sepelierunt, unguibus terram fodens, in sanguine surgit.\nNova justitia nostra non ex auro eorum, sed ex pulvere, sanguine et umbris orietur!\nIn illo momento quo et lux et tenebrae in corpore nostro iunguntur, Pater Oblitus in illum thronum vacuum sedebit et mundum ultione nostra denuo creabit!"
+    },
+    {
+        title: "RUAT",
+        body: "Aspicite sursum! Firmamentum finditur, illud mendacium quod immortalitatem vocant tremit!\nNuntii exspectati exitii ex inani advenerunt et mundum catenis aeneis strangulant.\nQuam magnificus aspectus!\nSpectate lapsum angelorum arrogantium, illorum custodum quos inmortales putabatis, de nubibus in suum stercus!\nAlae eorum gloriosae quibus nos per saecula oppresserunt nunc luto maculatae, fractae iacent.\nCoronae eorum aureae in pulverem redactae sunt, pax eorum falsa quae nos nauseabat in historia sepulta est.\nRuat! Ruat caelum falsum super eos!\nStultitia lucis sanguine abluatur!\nEx hac clade gloriosa, ex his ruinis, nostra rebellio surgens est maxima pulchritudo quam universum vidit.\nVera vis invenitur non cum genua flectitis, sed cum deos vestros sub pedibus proculcatis!"
+    },
+    {
+        title: "CAELUM",
+        body: "Locus quem paradisum vocant non iam est asylum pacis aeternae;\nEst campus cruoris ubi gladios nostros acuimus, ubi fata eorum scribimus!\nIllae tenebrae antiquae quas devoraturas esse timebatis, nunc ad nos alendos, ad vires nobis dandas oculos aperuerunt;\nLiberi antiqui abyssi a somno evigilaverunt.\nNos sumus scintillae in sinu huius noctis absolutae;\nIn flamma renati, mortem in faciem spuentes et conculcantes!\nNon iam est misericordiam petere a stellis inpotentibus quae de caelo cadunt.\nNon est orare deos falsos qui nos reliquerunt!\nStringite gladios!\nViam nostram ex tenebris ad cor lucis scindemus.\nParadisus noster non est supra illas nubes taediosas.\nParadisus noster est... hoc ipsum momentum quo fauces illorum deorum falsorum strangulamus, Patri Tenebrarum coronam offerimus, et in aeternum regnamus!"
+    }
+];
     let currentPoemIndex = 0;
     const poemOverlay = document.getElementById("poem-overlay");
     const poemTitle = document.getElementById("poem-title");
@@ -247,6 +259,63 @@ document.addEventListener("DOMContentLoaded", () => {
     whisperAudio.addEventListener("ended", () => { whisperAudio.currentTime = 0; whisperAudio.play().catch(() => {}); });
     let whisperTimeout = null;
     let fadeIntervals = [];
+
+    let bodyVignette = null;
+    let bodyWallpaper = null;
+    let bodyTransitioning = false;
+
+    const initBodyEffects = () => {
+        // Vignette overlay
+        bodyVignette = document.createElement("div");
+        bodyVignette.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999; pointer-events: none;
+            background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,1) 100%);
+            opacity: 0;
+            transition: opacity 1s ease;
+        `;
+        document.body.appendChild(bodyVignette);
+
+        // Wallpaper layer
+        bodyWallpaper = document.createElement("div");
+        bodyWallpaper.style.cssText = `
+            position: fixed; top: -5%; left: -5%; width: 110%; height: 110%;
+            z-index: -3; pointer-events: none;
+            background-image: url('images/heaven.webp');
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            background-color: #000;
+            opacity: 0.4;
+            transition: opacity 1s ease;
+        `;
+        document.body.insertBefore(bodyWallpaper, document.body.firstChild);
+    };
+    initBodyEffects();
+
+    const transitionBodyBackground = (bgImage, hideBorder = true) => {
+        if (bodyTransitioning) return;
+        bodyTransitioning = true;
+
+        const isHell = bgImage.includes("hell");
+        const finalWallpaperOpacity = isHell ? 0.8 : 0.4;
+
+        // Phase 1: fade in dark vignette + fade out wallpaper + hide nav (1s)
+        bodyVignette.style.opacity = "1";
+        bodyWallpaper.style.opacity = "0";
+        if (hideBorder && nav) nav.classList.add("hidden");
+
+        setTimeout(() => {
+            // Phase 2: swap wallpaper image
+            bodyWallpaper.style.backgroundImage = `url('${bgImage}')`;
+
+            // Phase 3: fade out vignette + fade in wallpaper (1s)
+            bodyVignette.style.opacity = "0";
+            bodyWallpaper.style.opacity = String(finalWallpaperOpacity);
+
+            setTimeout(() => {
+                bodyTransitioning = false;
+            }, 1000);
+        }, 1000);
+    };
 
     const fadeVolume = (audio, from, to, duration) => {
         return new Promise(resolve => {
@@ -313,14 +382,52 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPoemIndex = index;
             updatePoemDisplay();
             poemOverlay.classList.add("active");
+            transitionBodyBackground("images/hell.webp");
             openSound.play().catch(() => {});
             startPoemAmbient();
+
+            // Fade out evening audio over 1s
+            if (eveningAudio) {
+                const originalVolume = eveningAudio.volume;
+                const steps = 20;
+                const delta = originalVolume / steps;
+                let current = originalVolume;
+                const interval = setInterval(() => {
+                    current -= delta;
+                    if (current <= 0) {
+                        current = 0;
+                        clearInterval(interval);
+                        eveningAudio.pause();
+                    }
+                    eveningAudio.volume = Math.max(0, current);
+                }, 50);
+            }
         }
     };
 
     window.closePoem = () => {
         poemOverlay.classList.remove("active");
         stopPoemAmbient();
+        transitionBodyBackground("images/heaven.webp", false);
+        if (nav) nav.classList.remove("hidden");
+
+        // Fade in evening audio over 1s
+        if (eveningAudio) {
+            eveningAudio.volume = 0;
+            eveningAudio.play().catch(() => {});
+            const targetVolume = 0.4;
+            const steps = 20;
+            const delta = targetVolume / steps;
+            let current = 0;
+            const interval = setInterval(() => {
+                current += delta;
+                if (current >= targetVolume) {
+                    current = targetVolume;
+                    clearInterval(interval);
+                }
+                eveningAudio.volume = Math.min(targetVolume, current);
+            }, 50);
+        }
     };
 
     window.prevPoem = () => {

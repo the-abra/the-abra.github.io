@@ -41,24 +41,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: -5%;
-    left: -5%;
-    width: 110%;
-    height: 110%;
-    background-image: url('/images/background2.webp');
-    background-color: #000;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -2;
-    /* Removed filter: blur(8px) as it is extremely expensive on mobile */
-    /* Instead, we use a dark overlay to maintain readability */
-    opacity: 0.4;
-}
-
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
@@ -112,9 +94,15 @@ h4 {
     width: 100%;
     z-index: 1000;
     padding: 1.5rem 0;
-    transition: padding .3s ease, background .3s ease, box-shadow .3s ease;
+    transition: padding .3s ease, background .3s ease, box-shadow .3s ease, transform 1s ease, opacity 1s ease;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
     background: rgba(10, 25, 49, .4);
+}
+
+.nav.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Backdrop filter is heavy, only use it where it adds significant value and check for support */
@@ -697,6 +685,7 @@ section {
 
 .poem-container {
     position: relative;
+    z-index: 1;
     width: 467px;
     height: 871px;
     max-width: 90vw;
@@ -708,7 +697,7 @@ section {
     color: #3d3d3d; /* Darker text for the beige card */
     font-family: 'Luminari', serif;
     text-align: center;
-    padding: 20px;
+    padding: 45px;
 }
 
 .poem-card-bg {
@@ -740,7 +729,8 @@ section {
 
 .poem-content h2 {
     color: #2c2c2c;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     font-size: 1.8rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 0.5rem;
@@ -759,8 +749,8 @@ section {
 
 .poem-close-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 465px;
+    right: 487px;
     background: none;
     border: none;
     cursor: pointer;
