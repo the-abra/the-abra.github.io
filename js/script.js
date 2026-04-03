@@ -243,6 +243,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const whisperAudio = new Audio("static/whishper.webm");
     emptinessAudio.loop = true;
     whisperAudio.loop = true;
+    emptinessAudio.addEventListener("ended", () => { emptinessAudio.currentTime = 0; emptinessAudio.play().catch(() => {}); });
+    whisperAudio.addEventListener("ended", () => { whisperAudio.currentTime = 0; whisperAudio.play().catch(() => {}); });
     let whisperTimeout = null;
     let fadeIntervals = [];
 
