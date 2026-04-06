@@ -25,6 +25,31 @@
     <link rel="preload" as="image" href="images/logo.webp">
     <link rel="preload" as="image" href="images/my-avatar.webp" fetchpriority="high">
 
+    <!-- Preload audio resources for fast access -->
+    <link rel="preload" as="audio" href="static/click.webm">
+    <link rel="preload" as="audio" href="static/hover.webm">
+    <link rel="preload" as="audio" href="static/evening.webm">
+    <link rel="preload" as="audio" href="static/open-page-sfx.webm">
+    <link rel="preload" as="audio" href="static/emptyness.webm">
+    <link rel="preload" as="audio" href="static/whishper.webm">
+    <link rel="preload" as="audio" href="static/switch-page-sfx.webm">
+
+    <!-- Preload additional images -->
+    <link rel="preload" as="image" href="images/467x871-long-card-beige.webp">
+    <link rel="preload" as="image" href="images/556x590-card-short-grey.webp">
+    <link rel="preload" as="image" href="images/556x590-card-short-beige.webp">
+    <link rel="preload" as="image" href="images/556x590-card-short-blue.webp">
+    <link rel="preload" as="image" href="images/556x590-card-short-red.webp">
+    <link rel="preload" as="image" href="images/btnBlue.webp">
+    <link rel="preload" as="image" href="images/btnGreen.webp">
+    <link rel="preload" as="image" href="images/ButtonBorderBlock.webp">
+    <link rel="preload" as="image" href="images/close-btn.webp">
+    <link rel="preload" as="image" href="images/tag.webp">
+    <link rel="preload" as="image" href="images/PageUpIcon.webp">
+    <link rel="preload" as="image" href="images/messagebox.webp">
+    <link rel="preload" as="image" href="images/heaven.webp">
+    <link rel="preload" as="image" href="images/hell.webp">
+
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Use defer for scripts to prevent render blocking -->
@@ -61,7 +86,7 @@
         <div class="container">
             <div class="hero-layout">
                 <div class="hero-column left">
-                    <button class="btn-primary btn-blue">
+                    <button class="btn-primary btn-blue" onclick="window.open('static/CV.pdf', '_blank')" data-audio-bound="true">
                         <span data-translate="downloadResume">CURRICULUM VITAE</span>
                     </button>
                     <div class="card card-dark" onclick="window.location.href='https://www.esv.org/Genesis+1/'">
