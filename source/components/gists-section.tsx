@@ -272,6 +272,52 @@ function GistModal({
   );
 }
 
+function HexagonSVG() {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      className="absolute inset-0 w-full h-full pointer-events-none drop-shadow-[0_0_15px_rgba(0,0,0,0.6)] transition-all duration-300"
+    >
+      {/* High-opacity solid dark fill to maximize daylight readability */}
+      <polygon points="25,4 75,4 96,50 75,96 25,96 4,50" fill="rgba(8, 8, 8, 0.95)" />
+
+      {/* Main Hexagon Border (inherits color via currentColor) */}
+      <polygon
+        points="25,4 75,4 96,50 75,96 25,96 4,50"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        vectorEffect="non-scaling-stroke"
+      />
+
+      {/* Dotted Inner Outline */}
+      <polygon
+        points="27,7 73,7 93,50 73,93 27,93 7,50"
+        stroke="#ffffff"
+        strokeOpacity="0.25"
+        strokeWidth="1"
+        strokeDasharray="2,3"
+        fill="none"
+        vectorEffect="non-scaling-stroke"
+      />
+
+      {/* Tech brackets / corners */}
+      {/* Left Point */}
+      <path d="M7,45 L4,50 L7,55" stroke="currentColor" strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+      <circle cx="4" cy="50" r="1.5" fill="#ffffff" />
+
+      {/* Right Point */}
+      <path d="M93,45 L96,50 L93,55" stroke="currentColor" strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+      <circle cx="96" cy="50" r="1.5" fill="#ffffff" />
+
+      {/* Tech ticks */}
+      <line x1="45" y1="4" x2="55" y2="4" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.4" vectorEffect="non-scaling-stroke" />
+      <line x1="45" y1="96" x2="55" y2="96" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.4" vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
 function GistCard({
   gist,
   index,
@@ -298,36 +344,45 @@ function GistCard({
         delay: index * 0.1,
         ease: [0.23, 1, 0.32, 1],
       }}
+      whileHover={{ scale: 1.03 }}
       onClick={onClick}
-      className="group w-full text-left p-5 md:p-6 border border-white/[0.06] bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/[0.12] transition-all duration-300 cursor-pointer"
+      className="group relative w-full h-[280px] md:h-[300px] flex flex-col justify-between cursor-pointer text-white/15 hover:text-white/35 transition-colors text-center"
     >
-      {/* File info */}
-      <div className="flex items-center gap-2 mb-3">
-        <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
-          {firstFile.language}
-        </span>
-        <span className="text-white/10">|</span>
-        <span className="text-[10px] font-mono text-white/30 tracking-wider">
-          {date}
-        </span>
-      </div>
+      {/* SVG Hexagon Background */}
+      <HexagonSVG />
 
-      {/* Title */}
-      <h3 className="text-sm md:text-base text-white/80 group-hover:text-white transition-colors mb-2 line-clamp-2">
-        {gist.description || firstFile.filename}
-      </h3>
+      {/* Card Content - z-10 for perfect contrast and readability */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-between pt-12 pb-10 px-12 items-center">
+        {/* Top Part - File info */}
+        <div className="flex flex-col items-center w-full">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="text-[10px] font-mono text-white/60 tracking-widest uppercase">
+              {firstFile.language}
+            </span>
+            <span className="text-white/30">|</span>
+            <span className="text-[10px] font-mono text-white/60 tracking-wider">
+              {date}
+            </span>
+          </div>
 
-      {/* Filename */}
-      <p className="text-xs font-mono text-white/30 truncate">
-        {firstFile.filename}
-      </p>
+          {/* Title */}
+          <h3 className="text-sm md:text-base font-sans font-bold text-white/90 group-hover:text-white transition-colors mb-2 line-clamp-2 max-w-[190px]">
+            {gist.description || firstFile.filename}
+          </h3>
 
-      {/* Size indicator */}
-      <div className="mt-4 flex items-center gap-2">
-        <div className="h-px flex-1 bg-white/[0.06] group-hover:bg-white/[0.12] transition-colors" />
-        <span className="text-[10px] font-mono text-white/20">
-          {(firstFile.size / 1024).toFixed(1)}KB
-        </span>
+          {/* Filename */}
+          <p className="text-xs font-mono text-white/60 truncate max-w-[180px]">
+            {firstFile.filename}
+          </p>
+        </div>
+
+        {/* Bottom Part - Size indicator */}
+        <div className="flex flex-col items-center gap-1.5 w-full">
+          <div className="w-12 h-px bg-white/15 group-hover:bg-white/25 transition-colors" />
+          <span className="text-[10px] font-mono text-white/50">
+            {(firstFile.size / 1024).toFixed(1)}KB
+          </span>
+        </div>
       </div>
     </motion.button>
   );
@@ -341,7 +396,10 @@ export function GistsSection() {
   }, []);
 
   return (
-    <section id="gists" className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
+    <section
+      id="gists"
+      className="relative py-16 md:py-32 px-4 md:px-12 lg:px-24 overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -351,13 +409,13 @@ export function GistsSection() {
           transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           className="mb-12 md:mb-16"
         >
-          <p className="text-[10px] font-mono text-white/30 tracking-[0.3em] uppercase mb-3">
-            Teknik Notlar
+          <p className="text-[10px] font-mono text-white/60 tracking-[0.3em] uppercase mb-3">
+            003 / Teknik Notlar
           </p>
           <h2 className="text-2xl md:text-3xl font-light text-white/90 tracking-tight">
             Gist'ler
           </h2>
-          <p className="mt-4 text-sm text-white/40 max-w-xl">
+          <p className="mt-4 text-sm text-white/70 max-w-xl">
             Write-up'lar, yapılandırmalar ve teknik dokümantasyon.
           </p>
         </motion.div>

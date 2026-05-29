@@ -17,22 +17,22 @@
   --secondary: oklch(0.14 0 0);
   --secondary-foreground: oklch(0.80 0 0);
   --muted: oklch(0.18 0 0);
-  --muted-foreground: oklch(0.50 0 0);
-  --accent: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.70 0 0); /* Increased from 0.50 for daylight readability */
+  --accent: oklch(0.24 0 0);
   --accent-foreground: oklch(0.90 0 0);
-  --destructive: oklch(0.55 0 0);
+  --destructive: oklch(0.60 0 0);
   --destructive-foreground: oklch(0.96 0 0);
-  --border: oklch(0.18 0 0);
-  --input: oklch(0.12 0 0);
-  --ring: oklch(0.60 0 0);
+  --border: oklch(0.24 0 0); /* Increased from 0.18 for better structural definition */
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.65 0 0);
   --radius: 0.25rem;
 
   /* Glassmorphism tokens — pure white tints on black */
-  --glass-bg: oklch(0.96 0 0 / 0.04);
-  --glass-border: oklch(0.96 0 0 / 0.10);
-  --glass-highlight: oklch(0.96 0 0 / 0.06);
-  --dim: oklch(0.40 0 0);
-  --subtle: oklch(0.30 0 0);
+  --glass-bg: oklch(0.96 0 0 / 0.08); /* Slightly higher visibility */
+  --glass-border: oklch(0.96 0 0 / 0.16); /* Clearer edges in daylight */
+  --glass-highlight: oklch(0.96 0 0 / 0.10);
+  --dim: oklch(0.58 0 0); /* Increased from 0.40 */
+  --subtle: oklch(0.48 0 0); /* Increased from 0.30 */
 }
 
 @theme inline {
@@ -86,4 +86,12 @@
 ::selection {
   background: oklch(0.96 0 0 / 0.15);
   color: oklch(0.96 0 0);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

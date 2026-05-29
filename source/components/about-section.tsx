@@ -3,18 +3,20 @@
 import { motion } from "framer-motion";
 
 const stack = [
-  { category: "Donanım ve ICS", items: ["KiCad", "PLC Otomasyon", "PCB Tasarım", "Gömülü Sistemler"] },
-  { category: "Yazılım", items: ["Go", "Python", "Rust", "Next.js", "Linux Kernel"] },
-  { category: "Ofansif Güvenlik", items: ["OT/ICS Güvenliği", "C2 Mimarisi", "Red Teaming", "Tor"] },
+  { category: "Donanım & CAD Tasarımı", items: ["KiCad (PCB Tasarımı)", "Onshape (3D CAD Modelleme)", "Fiziksel Prototipleme", "Lehimleme & Montaj"] },
+  { category: "Otomasyon & Gömülü Sistemler", items: ["Siemens S7-1200 PLC", "HMI / SCADA Geliştirme", "Modbus RTU / TCP", "ESP32 & C/C++"] },
+  { category: "Endüstriyel Siber Güvenlik", items: ["OT / ICS Güvenliği", "Ağ Protokol Analizi", "Siber Vatan Eğitimleri", "Linux ve Bash"] },
 ];
 
 const credentials = [
-  { title: "Siber Vatan 2026", sub: "Ulusal Finalist", year: "2026" },
+  { title: "Meslek Lisesi - Bilişim Teknolojileri", sub: "Veri Tabanı Programcılığı Mezunu", year: "2023" },
+  { title: "Kontrol ve Otomasyon Teknolojisi", sub: "Mekatronik & Endüstriyel Otomasyon Mezunu", year: "2025" },
+  { title: "Siber Vatan 2026", sub: "Ulusal Finalist / OT-ICS Sınıfı Odaklı Siber Güvenlik", year: "2026" },
 ];
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative py-32 px-8 md:px-16">
+    <section id="about" className="relative py-20 md:py-32 px-4 md:px-16">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -26,7 +28,7 @@ export function AboutSection() {
         >
           <div>
             <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-              003 / PROFİL
+              001 / PROFİL
             </p>
             <h2 className="text-2xl md:text-3xl font-sans font-light text-foreground tracking-tight">
               Hakkımda
@@ -42,14 +44,16 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-sm text-[oklch(0.55_0_0)] leading-[1.9] mb-6 font-sans">
-              Türkiye merkezli Siber Güvenlik Araştırmacısı ve Sistem Geliştiricisi. 
-              Donanım ve yazılım güvenliğinin kesişimine odaklanıyor — 
-              bare-metal gömülü sistemlerden ölçeklenebilir C2 mimarilerine kadar.
+            <p className="text-sm text-foreground/85 leading-[1.9] mb-6 font-sans">
+              Yeni mezun Mekatronik Teknikeri ve Kontrol Otomasyon uzmanıyım. Fiziksel donanım 
+              dünyası ile endüstriyel kontrol sistemlerinin kesişiminde pratik çözümler üretiyorum. 
+              Mekanik tasarımlar için Onshape'i, profesyonel PCB şematik ve yerleşim tasarımları için 
+              ise KiCad'i yetkinlikle kullanıyorum.
             </p>
-            <p className="text-sm text-[oklch(0.55_0_0)] leading-[1.9] mb-10 font-sans">
-              Siber Vatan 2026 Ulusal Finalisti. Ofansif güvenlik araştırmaları ve donanım 
-              seviyesinde zafiyet analizi uzmanlığı ile OT/ICS ortamlarında faaliyet gösteriyor.
+            <p className="text-sm text-foreground/85 leading-[1.9] mb-10 font-sans">
+              Siber Vatan 2026 Ulusal Finalisti olarak, otomasyon altyapımı siber güvenlik bakış açısıyla 
+              birleştirerek OT/ICS (Endüstriyel Kontrol Sistemleri) güvenliği üzerine odaklanıyorum. Teorik 
+              bilgimi somut donanım projeleriyle birleştiren, öğrenmeye istekli yeni mezun bir araştırmacıyım.
             </p>
 
             {/* Stack table */}
@@ -69,7 +73,7 @@ export function AboutSection() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="font-mono text-[10px] tracking-[0.15em] px-3 py-1.5 border border-[oklch(0.96_0_0/0.10)] text-[oklch(0.65_0_0)] hover:border-[oklch(0.96_0_0/0.25)] hover:text-foreground transition-all cursor-default"
+                        className="font-mono text-[10px] tracking-[0.15em] px-3 py-1.5 border border-[oklch(0.96_0_0/0.10)] text-foreground/75 hover:border-[oklch(0.96_0_0/0.25)] hover:text-foreground transition-all cursor-default"
                       >
                         {item}
                       </span>

@@ -44,12 +44,12 @@ export function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
   const name = useScramble("MUSTAFA EGE KILIÇ", 300);
-  const role = useScramble("MEKATRONİK \\ DEVOPS \\ SİBER GÜVENLİK", 900);
+  const role = useScramble("MEKATRONİK TEKNİKERİ \\\\ KONTROL OTOMASYON", 900);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col justify-end pb-20 px-8 md:px-16 overflow-hidden pt-12 md:pt-16"
+      className="relative min-h-screen flex flex-col justify-end pb-12 md:pb-20 px-4 md:px-16 overflow-hidden pt-16"
       style={{
         backgroundImage: 'url(/hero-bg.jpg)',
         backgroundSize: 'cover',
@@ -102,9 +102,9 @@ export function HeroSection() {
           transition={{ delay: 1.1, duration: 0.8 }}
           className="max-w-lg"
         >
-          <p className="text-sm text-[oklch(0.60_0_0)] leading-relaxed font-sans">
-            Donanım seviyesinde güvenlik. OT/ICS ortamları. Ölçeklenebilir C2 mimarileri.
-            Another Day in Paradise
+          <p className="text-sm text-foreground/85 leading-relaxed font-sans">
+            Onshape ile 3D Modelleme. KiCad ile PCB Tasarımı. OT/ICS (Endüstriyel Kontrol) Güvenliği.
+            Siber Vatan 2026 Ulusal Finalisti.
           </p>
         </motion.div>
 

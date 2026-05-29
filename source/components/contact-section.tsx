@@ -32,11 +32,23 @@ export function ContactSection() {
   };
 
   const inputClass =
-    "w-full bg-transparent border-b border-[oklch(0.96_0_0/0.12)] py-3 text-sm text-foreground placeholder:text-[oklch(0.30_0_0)] font-sans focus:outline-none focus:border-[oklch(0.96_0_0/0.45)] transition-colors";
+    "w-full bg-transparent border-b border-[oklch(0.96_0_0/0.12)] py-3 text-sm text-foreground placeholder:text-foreground/50 font-sans focus:outline-none focus:border-[oklch(0.96_0_0/0.45)] transition-colors";
 
   return (
-    <section id="contact" className="relative py-32 px-8 md:px-16">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="contact"
+      className="relative py-20 md:py-32 px-4 md:px-16 overflow-hidden"
+      style={{
+        backgroundImage: "url('/teti.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.06_0_0/0.65)] via-[oklch(0.06_0_0/0.85)] to-[oklch(0.06_0_0)] pointer-events-none" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +84,7 @@ export function ContactSection() {
                 <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-4">
                   İLETİ ALINDI
                 </p>
-                <p className="text-sm text-[oklch(0.55_0_0)] leading-relaxed">
+                <p className="text-sm text-foreground/85 leading-relaxed">
                   Mesaj iletildi. Güvenli kanal üzerinden yanıt bekleniyor.
                 </p>
               </motion.div>
@@ -164,7 +176,7 @@ export function ContactSection() {
                 <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
                   {s.label}
                 </span>
-                <span className="text-sm font-sans text-[oklch(0.55_0_0)] group-hover:text-foreground transition-colors">
+                <span className="text-sm font-sans text-foreground/80 group-hover:text-foreground transition-colors">
                   {s.handle} <span className="opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
                 </span>
               </motion.a>
@@ -184,7 +196,7 @@ export function ContactSection() {
               <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
                 Gists / Blog
               </span>
-              <span className="text-sm font-sans text-[oklch(0.55_0_0)] group-hover:text-foreground transition-colors">
+              <span className="text-sm font-sans text-foreground/80 group-hover:text-foreground transition-colors">
                 gist.github.com/the-abra <span className="opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
               </span>
             </motion.a>
@@ -201,9 +213,9 @@ export function ContactSection() {
                 <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">
                   Yanıt süresi
                 </p>
-                <p className="text-sm text-[oklch(0.55_0_0)] font-sans leading-relaxed">
-                  Ciddi talepler için 24–48 saat içinde. Araştırma iş birlikleri ve 
-                  güvenlik danışmanlığı önceliklidir.
+                <p className="text-sm text-foreground/85 font-sans leading-relaxed">
+                  Ciddi talepler için 24–48 saat içinde. Gömülü sistemler, donanım tasarımı, 
+                  3D CAD ve endüstriyel otomasyon (OT/ICS) iş birlikleri önceliklidir.
                 </p>
               </div>
             </motion.div>
