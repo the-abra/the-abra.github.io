@@ -51,7 +51,7 @@ export function HeroSection() {
       ref={ref}
       className="relative min-h-screen flex flex-col justify-end pb-12 md:pb-20 px-4 md:px-16 overflow-hidden pt-16"
       style={{
-        backgroundImage: 'url(/hero-bg.jpg)',
+        backgroundImage: 'url(/hero-bg.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -117,6 +117,10 @@ export function HeroSection() {
         >
           <a
             href="#work"
+            onClick={(e) => {
+              e.preventDefault();
+              window.dispatchEvent(new CustomEvent("nav-change", { detail: { index: 1, target: "" } }));
+            }}
             className="group inline-flex items-center gap-3 px-6 py-3 border border-[oklch(0.96_0_0/0.18)] bg-[oklch(0.96_0_0/0.04)] backdrop-blur-sm text-foreground font-mono text-xs tracking-[0.2em] uppercase hover:bg-[oklch(0.96_0_0/0.10)] hover:border-[oklch(0.96_0_0/0.30)] transition-all"
           >
             Projeleri Görüntüle
@@ -149,7 +153,7 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <span className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground rotate-90 origin-center mb-6">
-          Kaydır
+          MENÜ
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}

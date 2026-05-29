@@ -5,7 +5,7 @@ import { Particles } from "@/components/particles";
 import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
 import { WorkSection } from "@/components/work-section";
-import { GistsSection } from "@/components/gists-section";
+import { GistsSection, GistModal, Gist } from "@/components/gists-section";
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
@@ -40,6 +40,35 @@ export default function Home() {
   const isLocked = useRef(false);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedGist, setSelectedGist] = useState<Gist | null>(null);
+  // Ref mirror so event handlers can read modal state without dep array changes
+  const isModalOpenRef = useRef(false);
+  useEffect(() => {
+    isModalOpenRef.current = !!(selectedGist || selectedProject);
+  }, [selectedGist, selectedProject]);
+  const [showScrollWarning, setShowScrollWarning] = useState(false);
+  const warningTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const hasShownWarning = useRef(false);
+
+  const triggerScrollWarning = () => {
+    if (hasShownWarning.current) return;
+    hasShownWarning.current = true;
+    setShowScrollWarning(true);
+    if (warningTimeoutRef.current) {
+      clearTimeout(warningTimeoutRef.current);
+    }
+    warningTimeoutRef.current = setTimeout(() => {
+      setShowScrollWarning(false);
+    }, 2500);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (warningTimeoutRef.current) {
+        clearTimeout(warningTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Dispatch slide change event for the navigation bar background frosted bar
   useEffect(() => {
@@ -59,10 +88,13 @@ export default function Home() {
   // Handle scroll/wheel event
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
+      // If any modal is open, let the browser handle scroll natively
+      if (isModalOpenRef.current) return;
+
       if (!isHeroDismissed) {
         if (e.deltaY > 0) {
           e.preventDefault();
-          setIsHeroDismissed(true);
+          triggerScrollWarning();
         }
         return;
       }
@@ -79,19 +111,19 @@ export default function Home() {
       if (Math.abs(deltaY) < 15) return; // Ignore small scrolls
 
       if (deltaY > 0) {
-        // Scroll down: only transition if at the bottom of the current slide
+        // Scroll down: warn if at the bottom of the current slide
         const isAtBottom =
           currentSlide.scrollTop + currentSlide.clientHeight >= currentSlide.scrollHeight - 5;
         if (isAtBottom) {
           e.preventDefault();
-          triggerTransition(1);
+          triggerScrollWarning();
         }
       } else {
-        // Scroll up: only transition if at the top of the current slide
+        // Scroll up: warn if at the top of the current slide
         const isAtTop = currentSlide.scrollTop <= 5;
         if (isAtTop) {
           e.preventDefault();
-          triggerTransition(-1);
+          triggerScrollWarning();
         }
       }
     };
@@ -108,12 +140,15 @@ export default function Home() {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
+      if (isModalOpenRef.current) return;
+
       if (!isHeroDismissed) {
         const touchEnd = e.touches[0].clientY;
         const deltaY = touchStart.current - touchEnd;
-        if (deltaY > 50) {
+        if (deltaY > 30) {
           // swipe up
-          setIsHeroDismissed(true);
+          if (e.cancelable) e.preventDefault();
+          triggerScrollWarning();
         }
         return;
       }
@@ -126,18 +161,19 @@ export default function Home() {
       const touchEnd = e.touches[0].clientY;
       const deltaY = touchStart.current - touchEnd;
 
-      if (Math.abs(deltaY) > 50) {
-        // threshold of 50px
+      if (Math.abs(deltaY) > 30) {
         if (deltaY > 0) {
           const isAtBottom =
             currentSlide.scrollTop + currentSlide.clientHeight >= currentSlide.scrollHeight - 10;
           if (isAtBottom) {
-            triggerTransition(1);
+            if (e.cancelable) e.preventDefault();
+            triggerScrollWarning();
           }
         } else {
           const isAtTop = currentSlide.scrollTop <= 10;
           if (isAtTop) {
-            triggerTransition(-1);
+            if (e.cancelable) e.preventDefault();
+            triggerScrollWarning();
           }
         }
         touchStart.current = touchEnd;
@@ -145,20 +181,23 @@ export default function Home() {
     };
 
     window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
     return () => {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [activeIndex, isHeroDismissed]);
+  }, [activeIndex, isHeroDismissed, selectedGist, selectedProject]);
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // If any modal is open, don't intercept keyboard scroll keys
+      if (isModalOpenRef.current) return;
+
       if (!isHeroDismissed) {
         if (e.key === "PageDown" || e.key === "ArrowDown" || e.key === " ") {
           e.preventDefault();
-          setIsHeroDismissed(true);
+          triggerScrollWarning();
         }
         return;
       }
@@ -172,7 +211,7 @@ export default function Home() {
             currentSlide.scrollTop + currentSlide.clientHeight >= currentSlide.scrollHeight - 5;
           if (isAtBottom) {
             e.preventDefault();
-            triggerTransition(1);
+            triggerScrollWarning();
           }
         }
       } else if (e.key === "PageUp" || e.key === "ArrowUp") {
@@ -182,7 +221,7 @@ export default function Home() {
           const isAtTop = currentSlide.scrollTop <= 5;
           if (isAtTop) {
             e.preventDefault();
-            triggerTransition(-1);
+            triggerScrollWarning();
           }
         }
       }
@@ -190,7 +229,7 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeIndex, isHeroDismissed]);
+  }, [activeIndex, isHeroDismissed, selectedGist, selectedProject]);
 
   // Navigation click listener
   useEffect(() => {
@@ -255,7 +294,7 @@ export default function Home() {
       />
 
       {/* Global Navigation */}
-      <Navigation />
+      <Navigation isHighlighted={showScrollWarning} />
 
       {/* Hero overlay page */}
       <div
@@ -311,7 +350,7 @@ export default function Home() {
           }}
           className="w-full h-full overflow-y-auto overflow-x-hidden scrollbar-none"
         >
-          <GistsSection />
+          <GistsSection onGistSelect={setSelectedGist} />
         </div>
       </div>
 
@@ -400,6 +439,80 @@ export default function Home() {
                 >
                   KAPAT
                 </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Gist Modal (rendered outside the transformed grid container) */}
+      <AnimatePresence>
+        {selectedGist && (
+          <GistModal
+            gist={selectedGist}
+            onClose={() => setSelectedGist(null)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Scroll Warning Overlay */}
+      <AnimatePresence>
+        {showScrollWarning && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onWheel={(e) => e.preventDefault()}
+            onTouchMove={(e) => e.preventDefault()}
+            className="fixed inset-0 z-40 backdrop-blur-xl bg-black/75 flex items-center justify-center pointer-events-auto"
+          >
+            {/* Tech grid background pattern */}
+            <div 
+              className="absolute inset-0 opacity-[0.03] pointer-events-none"
+              style={{
+                backgroundImage: `radial-gradient(circle, #fff 1px, transparent 1px)`,
+                backgroundSize: '24px 24px',
+              }}
+            />
+            
+            <motion.div
+              initial={{ scale: 0.9, y: 10, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 10, opacity: 0 }}
+              transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.5 }}
+              className="border border-white/10 bg-neutral-950/90 p-8 max-w-sm mx-4 text-center shadow-[0_0_50px_rgba(6,182,212,0.2)] relative rounded-lg overflow-hidden backdrop-blur-md"
+            >
+              {/* High-tech corner markings */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-500/80" />
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-cyan-500/80" />
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-cyan-500/80" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500/80" />
+              
+              {/* High-tech pulsing indicator */}
+              <div className="flex justify-center mb-4">
+                <div className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+                </div>
+              </div>
+
+              <div className="font-mono text-[9px] tracking-[0.35em] text-cyan-400/90 uppercase mb-2">
+                [ SYSTEM_NAV // PROTOCOL_LOCK ]
+              </div>
+              
+              <h3 className="font-mono text-xs md:text-sm tracking-[0.2em] text-white uppercase font-bold mb-3">
+                GEÇİŞ İÇİN MENÜYÜ KULLANIN
+              </h3>
+              
+              <p className="text-[11px] md:text-xs text-white/70 leading-relaxed font-sans mb-5">
+                Sayfalar arasında geçiş yapmak için lütfen yukarıda yer alan menü butonlarını kullanın. Manuel kaydırma devre dışı bırakılmıştır.
+              </p>
+              
+              {/* Bottom decorative stats */}
+              <div className="border-t border-white/5 pt-3 flex items-center justify-between font-mono text-[8px] text-white/30">
+                <span>STATUS: SECURE</span>
+                <span>CODE: 0x9F_NAV</span>
               </div>
             </motion.div>
           </motion.div>

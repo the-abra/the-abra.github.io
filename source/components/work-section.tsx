@@ -47,18 +47,20 @@ const projects: Project[] = [
   {
     index: "02",
     title: "Robotik Kol",
-    description: "3 eklemli ana kol, tabanda 1 eksen rotasyon ve ucundaki kıskaç ile toplam 4 eksenli robotik kolun kinematik tasarımı.",
-    tags: ["Onshape", "3D CAD", "Mekanik Tasarım", "Mekatronik"],
+    description: "6 servo motorlu, 4 eksenli robotik kol — tabanda sağa/sola rotasyon, 3 kol eklemi, tutamaç rotasyonu ve tutamaç açma/kapama mekanizması.",
+    tags: ["Onshape", "3D CAD", "Servo Motor", "Mekatronik"],
     href: "#",
     color: "#3b82f6",
-    modelUrl: "/thearm.glb",
-    longDescription: "Onshape üzerinde endüstriyel hassasiyet standartlarında tasarlanmış 4 eksenli robotik kol prototipi. 3 eklemli hareketli kol yapısına ek olarak, tabanında 360 derece sağa/sola rotasyon sağlayan 1 eksenli bir döner tabla bulunur. Kolun uç kısmında (end-effector) nesneleri kavrayabilmesi için hareketli ve servo motor kontrollü bir kıskaç mekanizması entegre edilmiştir.",
+    modelUrl: "/thearm_opt.glb",
+    longDescription: "Onshape üzerinde endüstriyel hassasiyet standartlarında tasarlanmış 4 eksenli robotik kol prototipi. Toplamda 6 adet servo motor ile tam hareketlilik sağlanmaktadır: tabanındaki servo kolun sağa/sola dönmesini, 3 eklem servosunu ise kol bağlantılarını kontrol eder. Uç kısmındaki (end-effector) kıskacın kendi ekseni etrafında rotate etmesi ayrı bir servo ile, nesneyi kavramak/bırakmak için açma-kapama hareketi ise son servo motor ile yönetilir.",
     specs: {
-      "Eksen Sayısı": "4 Eksen (3 Kol Eklemi + 1 Taban Rotasyonu)",
-      "Uç İşlevci": "Servo Kontrollü Kıskaç (Gripper)",
+      "Servo Motor Sayısı": "6 Adet",
+      "Taban": "1× Servo — Sağa/Sola Rotasyon",
+      "Kol Eklemleri": "3× Servo — Eklem Hareketi",
+      "Tutamaç Rotasyonu": "1× Servo — End-Effector Rotasyonu",
+      "Tutamaç Kavrama": "1× Servo — Açma / Kapama",
       "Tasarım Yazılımı": "Onshape 3D CAD",
-      "Kullanım Amacı": "Hassas Parça Taşıma ve Yerleştirme",
-      "Malzeme Uyum": "3D Yazıcı (PLA/PETG) ve Alüminyum Şasi"
+      "Malzeme": "3D Yazıcı (PLA/PETG) + Alüminyum Şasi"
     }
   },
   {
@@ -84,7 +86,7 @@ const projects: Project[] = [
     tags: ["Onshape", "UAV CAD", "Aerodinamik", "RC Donanım"],
     href: "#",
     color: "#10b981",
-    modelUrl: "/UAV.glb",
+    modelUrl: "/UAV_opt.glb",
     longDescription: "Onshape üzerinde aerodinamik verimlilik ilkelerine sadık kalınarak tasarlanmış radyo kontrollü insansız hava aracı (RC UAV) gövdesi. Kanat profili, kuyruk tasarımı ve burun geometrisi stabiliteyi maksimize edecek şekilde modellenmiştir. Gövde içi, seçilecek batarya, ESC, alıcı ve servo motor gibi elektronik donanımların yerleşimine ve ağırlık merkezine göre optimize edilebilir modüler bir iç hacme sahiptir.",
     specs: {
       "Kanat Yapısı": "Yüksek Taşıma Güçlü Sabit Kanat (Fixed Wing)",

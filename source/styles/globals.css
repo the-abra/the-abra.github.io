@@ -123,3 +123,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Optimize performance for offscreen sections */
+#about, #work, #gists, #contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100vh;
+}

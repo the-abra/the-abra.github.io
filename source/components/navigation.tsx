@@ -10,7 +10,7 @@ const navItems = [
   { label: "İletişim", href: "#contact" },
 ];
 
-export function Navigation() {
+export function Navigation({ isHighlighted = false }: { isHighlighted?: boolean }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHeroDismissed, setIsHeroDismissed] = useState(false);
   const [statusText, setStatusText] = useState("Müsait");
@@ -57,7 +57,11 @@ export function Navigation() {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isHighlighted
+          ? "border-[3px] border-white shadow-[0_0_20px_rgba(255,255,255,0.85),inset_0_0_10px_rgba(255,255,255,0.45)] m-2 md:m-4 rounded-lg bg-neutral-950/95 overflow-hidden"
+          : "border-b border-transparent"
+      }`}
     >
       {/* Frosted bar — appears on scroll/slide change when hero is dismissed */}
       <motion.div

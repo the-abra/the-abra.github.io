@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-interface GistFile {
+export interface GistFile {
   filename: string;
   type: string;
   language: string;
@@ -13,7 +13,7 @@ interface GistFile {
   size: number;
 }
 
-interface Gist {
+export interface Gist {
   id: string;
   html_url: string;
   description: string;
@@ -137,7 +137,7 @@ const GISTS_DATA: Gist[] = [
   },
 ];
 
-function GistModal({
+export function GistModal({
   gist,
   onClose,
 }: {
@@ -388,13 +388,11 @@ function GistCard({
   );
 }
 
-export function GistsSection() {
-  const [selectedGist, setSelectedGist] = useState<Gist | null>(null);
+interface GistsSectionProps {
+  onGistSelect: (gist: Gist) => void;
+}
 
-  const handleClose = useCallback(() => {
-    setSelectedGist(null);
-  }, []);
-
+export function GistsSection({ onGistSelect }: GistsSectionProps) {
   return (
     <section
       id="gists"
@@ -427,18 +425,11 @@ export function GistsSection() {
               key={gist.id}
               gist={gist}
               index={index}
-              onClick={() => setSelectedGist(gist)}
+              onClick={() => onGistSelect(gist)}
             />
           ))}
         </div>
       </div>
-
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedGist && (
-          <GistModal gist={selectedGist} onClose={handleClose} />
-        )}
-      </AnimatePresence>
     </section>
   );
 }
